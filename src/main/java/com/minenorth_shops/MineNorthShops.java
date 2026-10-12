@@ -29,7 +29,10 @@ public class MineNorthShops {
         ModItems.ITEMS.register(bus);
         bus.addListener(this::commonSetup);
         bus.addListener(this::creativeTabs);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ShopConfig.SPEC);
+        // COMMON (dossier config/) et non SERVER (<monde>/serverconfig/, remis à zéro à chaque redémarrage) ; serveur dédié seulement : le client ne crée aucun fichier.
+        if (net.minecraftforge.fml.loading.FMLEnvironment.dist == net.minecraftforge.api.distmarker.Dist.DEDICATED_SERVER) {
+            ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ShopConfig.SPEC, "minenorth_shops-server.toml");
+        }
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new EntityLinks());
     }
