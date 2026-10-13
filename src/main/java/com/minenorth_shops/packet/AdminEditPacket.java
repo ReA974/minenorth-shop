@@ -24,7 +24,8 @@ public class AdminEditPacket {
         ADD_ENTRY /* entryId = slot */, UPDATE_ENTRY, REMOVE_ENTRY, MOVE_UP, LINKER, PREVIEW,
         SET_LICENCE /* text = id de licence, vide = aucune */,
         SET_ACCESS /* text = tous | police:2 (tous grades) | police:1 (officier et +) | police:0 (commissaire) | pompier */,
-        SET_ILLEGAL /* text = "1" illégale, "0" légale */
+        SET_ILLEGAL /* text = "1" illégale, "0" légale */,
+        SET_COMPANY /* text = id d'entreprise, vide = aucune */
     }
 
     public static final int MAX_QTY = 4096;
@@ -163,8 +164,17 @@ public class AdminEditPacket {
                 String a = m.text.trim().toLowerCase(java.util.Locale.ROOT);
                 s.pompier = false;
                 s.policeGrade = -1;
+                s.mairie = false;
+                if (a.equals("entreprise") || a.equals("direction")) {
+                    s.companyDirection = a.equals("direction");
+                    if (s.companyId == 0) s.companyId = -1;     // à désigner dans la liste « Entreprise »
+                } else {
+                    s.companyId = 0;
+                }
                 if (a.equals("pompier")) {
                     s.pompier = true;
+                } else if (a.equals("mairie")) {
+                    s.mairie = true;
                 } else if (a.startsWith("police:")) {
                     try {
                         s.policeGrade = Math.max(0, Math.min(2, Integer.parseInt(a.substring(7))));
@@ -173,6 +183,14 @@ public class AdminEditPacket {
                     }
                 }
                 d.changed();
+                if (s.mairie) {
+                    return "Réservée à la mairie (maire et agents, OP compris)."
+                            + (com.minenorth_shops.AccessCompat.townHallAvailable() ? "" : " Attention : mod État absent, boutique bloquée.");
+                }
+                if (s.companyId != 0) {
+                    return s.companyId < 0 ? "Choisissez l'entreprise dans la liste « Entreprise » (boutique bloquée d'ici là)."
+                            : "Réservée à " + (s.companyDirection ? "la direction de " : "l'entreprise ") + com.minenorth_shops.AccessCompat.companyName(p.server, s.companyId) + ".";
+                }
                 if (s.pompier) {
                     return "Réservée aux pompiers / secours."
                             + (PompierCompat.available() ? "" : " Attention : mod Secours absent, boutique bloquée.");
@@ -180,6 +198,26 @@ public class AdminEditPacket {
                 if (!s.policeOnly()) return "Boutique ouverte à tout le monde.";
                 return "Réservée : " + PoliceCompat.label(s.policeGrade) + "."
                         + (PoliceCompat.available() ? "" : " Attention : mod Police absent, boutique bloquée.");
+            }
+            case SET_COMPANY -> {
+                String txt = m.text.trim();
+                if (txt.isEmpty()) {
+                    s.companyId = 0;
+                    s.companyDirection = false;
+                    d.changed();
+                    return "Plus de réservation à une entreprise.";
+                }
+                int cid;
+                try { cid = Integer.parseInt(txt); } catch (NumberFormatException ex) { return "Entreprise invalide."; }
+                if (!com.minenorth_shops.AccessCompat.companiesAvailable()) return "Le mod Entreprises est absent.";
+                String cname = fr.minenorth.api.MineNorth.companies().name(p.server, cid);
+                if (cname.isEmpty()) return "Entreprise introuvable.";
+                s.companyId = cid;
+                s.pompier = false;
+                s.mairie = false;
+                s.policeGrade = -1;
+                d.changed();
+                return "Réservée à " + (s.companyDirection ? "la direction de " : "l'entreprise ") + cname + ".";
             }
             case SET_ILLEGAL -> {
                 s.illegal = m.text.trim().equals("1");

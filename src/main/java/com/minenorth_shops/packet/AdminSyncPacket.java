@@ -25,6 +25,8 @@ public class AdminSyncPacket {
     /** Mod permis présent côté serveur + licences disponibles (pour le sélecteur « Licence requise »). */
     public boolean permis;
     public List<LicenceInfo> licences = new ArrayList<>();
+    /** Entreprises actives (« id|nom ») pour la liste déroulante « Entreprise ». */
+    public List<String> companies = new ArrayList<>();
 
     public static AdminSyncPacket compute(MinecraftServer server, boolean open, int focus, String message) {
         AdminSyncPacket m = new AdminSyncPacket();
@@ -34,6 +36,7 @@ public class AdminSyncPacket {
         m.shops.addAll(ShopData.get(server).all());
         m.permis = PermisCompat.available();
         m.licences.addAll(PermisCompat.licences());
+        m.companies.addAll(fr.minenorth.api.MineNorth.companies().activeCompanies(server));
         return m;
     }
 
@@ -49,6 +52,8 @@ public class AdminSyncPacket {
             b.writeUtf(l.id(), 64);
             b.writeUtf(l.name(), 128);
         }
+        b.writeVarInt(m.companies.size());
+        for (String c : m.companies) b.writeUtf(c, 128);
     }
 
     public static AdminSyncPacket decode(FriendlyByteBuf b) {
@@ -61,6 +66,8 @@ public class AdminSyncPacket {
         m.permis = b.readBoolean();
         int l = b.readVarInt();
         for (int i = 0; i < l; i++) m.licences.add(new LicenceInfo(b.readUtf(64), b.readUtf(128)));
+        int c = b.readVarInt();
+        for (int i = 0; i < c; i++) m.companies.add(b.readUtf(128));
         return m;
     }
 

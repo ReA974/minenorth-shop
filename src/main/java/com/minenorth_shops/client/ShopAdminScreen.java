@@ -47,6 +47,8 @@ public class ShopAdminScreen extends Screen {
     private List<Shop> shops;
     private boolean permis;
     private List<LicenceInfo> licences;
+    /** Entreprises actives (« id|nom ») pour la liste déroulante « Entreprise ». */
+    private List<String> companies = new java.util.ArrayList<>();
     private String message;
     private int selectedShop = -1;   // sélection sur la page liste
     private int editing = -1;        // boutique en cours d'édition (-1 = page liste)
@@ -70,6 +72,7 @@ public class ShopAdminScreen extends Screen {
         this.shops = m.shops;
         this.permis = m.permis;
         this.licences = m.licences;
+        this.companies = m.companies;
         this.message = m.message;
         if (m.focus >= 0 && shop(m.focus) != null) startEdit(m.focus);
     }
@@ -84,6 +87,7 @@ public class ShopAdminScreen extends Screen {
         this.shops = m.shops;
         this.permis = m.permis;
         this.licences = m.licences;
+        this.companies = m.companies;
         if (!m.message.isEmpty()) this.message = m.message;
         if (m.focus >= 0 && shop(m.focus) != null) {
             startEdit(m.focus);
@@ -124,11 +128,13 @@ public class ShopAdminScreen extends Screen {
                 d -> openDropdown = d));
     }
 
-    private static final String[] ACCESS_LABELS = {"Tous", "Police", "Police off.+", "Police comm.", "Pompiers"};
-    private static final String[] ACCESS_CODES = {"tous", "police:2", "police:1", "police:0", "pompier"};
+    private static final String[] ACCESS_LABELS = {"Tous", "Police", "Police off.+", "Police comm.", "Pompiers", "Mairie", "Entreprise", "Direction entr."};
+    private static final String[] ACCESS_CODES = {"tous", "police:2", "police:1", "police:0", "pompier", "mairie", "entreprise", "direction"};
 
     private static int accessIndex(Shop s) {
         if (s.pompier) return 4;
+        if (s.mairie) return 5;
+        if (s.companyId != 0) return s.companyDirection ? 7 : 6;
         if (!s.policeOnly()) return 0;
         return 3 - Math.max(0, Math.min(2, s.policeGrade));   // grade 2 (tout policier) -> 1, 1 -> 2, 0 -> 3
     }
@@ -292,13 +298,35 @@ public class ShopAdminScreen extends Screen {
             licNames.add(licenceName(s.licence));
             licSel = licNames.size() - 1;
         }
-        ShopDropdown licDrop = dropdown(16, 78, 88, "Licence", licNames, licSel, s.requiresLicence() ? ShopButton.GREEN : ShopButton.DARK,
+        ShopDropdown licDrop = dropdown(16, 78, 58, "Licence", licNames, licSel, s.requiresLicence() ? ShopButton.GREEN : ShopButton.DARK,
                 i -> send(Op.SET_LICENCE, s.id, 0, i == 0 || i > licences.size() ? "" : licences.get(i - 1).id(), 0, 0));
         licDrop.active = permis && !licences.isEmpty();
-        dropdown(108, 78, 118, "Accès", List.of(ACCESS_LABELS), accessIndex(s),
-                s.pompier ? ShopButton.GREEN : s.policeOnly() ? ShopButton.PINK : ShopButton.DARK,
+        dropdown(78, 78, 70, "Accès", List.of(ACCESS_LABELS), accessIndex(s),
+                s.pompier || s.mairie || s.companyId != 0 ? ShopButton.GREEN : s.policeOnly() ? ShopButton.PINK : ShopButton.DARK,
                 i -> send(Op.SET_ACCESS, s.id, 0, ACCESS_CODES[i], 0, 0));
-        dropdown(230, 78, 74, "Statut", List.of("Légale", "Illégale"), s.illegal ? 1 : 0, s.illegal ? ShopButton.PINK : ShopButton.DARK,
+        // entreprise réservée : liste déroulante des entreprises actives (le niveau - membres / direction - se règle dans « Accès »)
+        List<String> compNames = new java.util.ArrayList<>();
+        List<String> compIds = new java.util.ArrayList<>();
+        compNames.add("Aucune");
+        compIds.add("");
+        int compSel = 0;
+        for (String c : companies) {
+            String[] parts = c.split("\\|", 2);
+            if (parts.length < 2) continue;
+            compNames.add(parts[1]);
+            compIds.add(parts[0]);
+            if (parts[0].equals(String.valueOf(s.companyId))) compSel = compNames.size() - 1;
+        }
+        if (s.companyId > 0 && compSel == 0) {   // entreprise que le serveur ne liste plus (dissoute...) : on l'affiche quand même
+            compNames.add("#" + s.companyId);
+            compIds.add(String.valueOf(s.companyId));
+            compSel = compNames.size() - 1;
+        }
+        ShopDropdown compDrop = dropdown(152, 78, 88, "Entreprise", compNames, compSel,
+                s.companyId > 0 ? ShopButton.GREEN : s.companyId < 0 ? ShopButton.PINK : ShopButton.DARK,
+                i -> send(Op.SET_COMPANY, s.id, 0, compIds.get(i), 0, 0));
+        compDrop.active = companies.size() > 0;
+        dropdown(244, 78, 60, "Statut", List.of("Légale", "Illégale"), s.illegal ? 1 : 0, s.illegal ? ShopButton.PINK : ShopButton.DARK,
                 i -> send(Op.SET_ILLEGAL, s.id, 0, i == 1 ? "1" : "0", 0, 0));
 
         int maxOffset = Math.max(0, s.entries.size() - E_ROWS);

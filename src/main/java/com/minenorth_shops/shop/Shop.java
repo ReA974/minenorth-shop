@@ -28,6 +28,12 @@ public class Shop {
     public int policeGrade = -1;
     /** Réservée aux pompiers / secours (mod minenorthsecours). */
     public boolean pompier;
+    /** Réservée à la mairie : maire et agents (le mod État), les OP passent toujours. */
+    public boolean mairie;
+    /** Réservée à une entreprise : 0 = non, > 0 = identifiant de l'entreprise, -1 = « entreprise » choisie mais pas encore désignée (boutique bloquée). */
+    public int companyId;
+    /** Avec une entreprise : true = direction seulement (patron et grades avec droit de gestion), false = tous les membres. */
+    public boolean companyDirection;
     /** Boutique illégale : deux entités (ou plus) lui sont assignées, une seule est présente à la fois (voir IllegalRotation). */
     public boolean illegal;
     /** Minutes entre deux changements d'emplacement (0 = valeur de la config). */
@@ -62,6 +68,8 @@ public class Shop {
     /** Texte court de l'accès réservé (police / pompiers), "" si ouvert à tous. */
     public String accessLabel() {
         if (pompier) return "Pompiers";
+        if (mairie) return "Mairie";
+        if (companyId != 0) return "Entreprise";
         return policeOnly() ? "Police" : "";
     }
 
@@ -85,6 +93,9 @@ public class Shop {
         t.putString("Licence", licence);
         t.putInt("Police", policeGrade);
         t.putBoolean("Pompier", pompier);
+        t.putBoolean("Mairie", mairie);
+        t.putInt("Company", companyId);
+        t.putBoolean("CompanyDir", companyDirection);
         t.putBoolean("Illegal", illegal);
         t.putInt("IllegalMin", illegalMinutes);
         t.putDouble("IllegalRadius", illegalRadius);
@@ -107,6 +118,9 @@ public class Shop {
         s.licence = t.getString("Licence");   // "" pour les anciennes sauvegardes
         s.policeGrade = t.contains("Police") ? Math.max(-1, Math.min(2, t.getInt("Police"))) : -1;
         s.pompier = t.getBoolean("Pompier");
+        s.mairie = t.getBoolean("Mairie");
+        s.companyId = t.getInt("Company");
+        s.companyDirection = t.getBoolean("CompanyDir");
         s.illegal = t.getBoolean("Illegal");
         s.illegalMinutes = Math.max(0, t.getInt("IllegalMin"));
         s.illegalRadius = t.contains("IllegalRadius") ? t.getDouble("IllegalRadius") : -1;
@@ -130,6 +144,9 @@ public class Shop {
         o.addProperty("licence", licence);
         o.addProperty("policeGrade", policeGrade);
         o.addProperty("pompier", pompier);
+        o.addProperty("mairie", mairie);
+        o.addProperty("companyId", companyId);
+        o.addProperty("companyDirection", companyDirection);
         o.addProperty("illegal", illegal);
         o.addProperty("illegalMinutes", illegalMinutes);
         o.addProperty("illegalRadius", illegalRadius);
@@ -151,6 +168,9 @@ public class Shop {
         if (o.has("licence")) s.licence = o.get("licence").getAsString();
         if (o.has("policeGrade")) s.policeGrade = Math.max(-1, Math.min(2, o.get("policeGrade").getAsInt()));
         if (o.has("pompier")) s.pompier = o.get("pompier").getAsBoolean();
+        if (o.has("mairie")) s.mairie = o.get("mairie").getAsBoolean();
+        if (o.has("companyId")) s.companyId = o.get("companyId").getAsInt();
+        if (o.has("companyDirection")) s.companyDirection = o.get("companyDirection").getAsBoolean();
         if (o.has("illegal")) s.illegal = o.get("illegal").getAsBoolean();
         if (o.has("illegalMinutes")) s.illegalMinutes = Math.max(0, o.get("illegalMinutes").getAsInt());
         if (o.has("illegalRadius")) s.illegalRadius = o.get("illegalRadius").getAsDouble();
@@ -182,6 +202,9 @@ public class Shop {
         b.writeUtf(licence, 64);
         b.writeByte(policeGrade);
         b.writeBoolean(pompier);
+        b.writeBoolean(mairie);
+        b.writeVarInt(companyId + 1);
+        b.writeBoolean(companyDirection);
         b.writeBoolean(illegal);
         b.writeVarInt(illegalMinutes);
         b.writeDouble(illegalRadius);
@@ -197,6 +220,9 @@ public class Shop {
         s.licence = b.readUtf(64);
         s.policeGrade = b.readByte();
         s.pompier = b.readBoolean();
+        s.mairie = b.readBoolean();
+        s.companyId = b.readVarInt() - 1;
+        s.companyDirection = b.readBoolean();
         s.illegal = b.readBoolean();
         s.illegalMinutes = b.readVarInt();
         s.illegalRadius = b.readDouble();

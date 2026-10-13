@@ -88,6 +88,15 @@ public final class ShopCommands {
                         .then(Commands.argument("id", IntegerArgumentType.integer(1)).suggests(SHOP_IDS)
                                 .then(Commands.argument("etat", StringArgumentType.word()).suggests(ON_OFF)
                                         .executes(ShopCommands::pompier))))
+                .then(Commands.literal("mairie")
+                        .then(Commands.argument("id", IntegerArgumentType.integer(1)).suggests(SHOP_IDS)
+                                .then(Commands.argument("etat", StringArgumentType.word()).suggests(ON_OFF)
+                                        .executes(ShopCommands::mairie))))
+                .then(Commands.literal("entreprise")
+                        .then(Commands.argument("id", IntegerArgumentType.integer(1)).suggests(SHOP_IDS)
+                                .then(Commands.argument("nom", StringArgumentType.string()).suggests(COMPANIES)
+                                        .executes(c -> entreprise(c, false))
+                                        .then(Commands.literal("direction").executes(c -> entreprise(c, true))))))
                 .then(Commands.literal("illegal")
                         .then(Commands.argument("id", IntegerArgumentType.integer(1)).suggests(SHOP_IDS)
                                 .then(Commands.literal("statut").executes(ShopCommands::illegalStatus))
@@ -110,6 +119,62 @@ public final class ShopCommands {
             case "off", "non", "false", "0" -> Boolean.FALSE;
             default -> null;
         };
+    }
+
+
+    /** Noms des entreprises actives (entre guillemets s'ils contiennent un espace), plus « aucune ». */
+    private static final SuggestionProvider<CommandSourceStack> COMPANIES = (ctx, b) -> {
+        java.util.List<String> names = new java.util.ArrayList<>();
+        names.add("aucune");
+        for (String c : fr.minenorth.api.MineNorth.companies().activeCompanies(ctx.getSource().getServer())) {
+            String[] parts = c.split("\\|", 2);
+            if (parts.length == 2) names.add(parts[1].contains(" ") ? "\"" + parts[1] + "\"" : parts[1]);
+        }
+        return SharedSuggestionProvider.suggest(names, b);
+    };
+
+    private static int mairie(CommandContext<CommandSourceStack> c) {
+        Shop s = shop(c);
+        Boolean on = parseOnOff(StringArgumentType.getString(c, "etat"));
+        if (s == null || on == null) {
+            c.getSource().sendFailure(Component.literal(s == null ? "Boutique introuvable." : "État : on ou off."));
+            return 0;
+        }
+        s.mairie = on;
+        if (on) { s.pompier = false; s.policeGrade = -1; s.companyId = 0; }
+        ShopData.get(c.getSource().getServer()).changed();
+        c.getSource().sendSystemMessage(Component.literal(on
+                ? "« " + s.name + " » est réservée à la mairie (maire, agents et OP)." + (AccessCompat.townHallAvailable() ? "" : " (mod État absent : boutique bloquée)")
+                : "« " + s.name + " » n'est plus réservée à la mairie."));
+        return 1;
+    }
+
+    private static int entreprise(CommandContext<CommandSourceStack> c, boolean direction) {
+        Shop s = shop(c);
+        if (s == null) {
+            c.getSource().sendFailure(Component.literal("Boutique introuvable."));
+            return 0;
+        }
+        String nom = StringArgumentType.getString(c, "nom").trim();
+        if (nom.equalsIgnoreCase("aucune")) {
+            s.companyId = 0;
+            s.companyDirection = false;
+            ShopData.get(c.getSource().getServer()).changed();
+            c.getSource().sendSystemMessage(Component.literal("« " + s.name + " » n'est plus réservée à une entreprise."));
+            return 1;
+        }
+        int id = fr.minenorth.api.MineNorth.companies().idOf(c.getSource().getServer(), nom);
+        if (id <= 0) {
+            c.getSource().sendFailure(Component.literal("Entreprise active introuvable : " + nom));
+            return 0;
+        }
+        s.companyId = id;
+        s.companyDirection = direction;
+        s.mairie = false; s.pompier = false; s.policeGrade = -1;
+        ShopData.get(c.getSource().getServer()).changed();
+        c.getSource().sendSystemMessage(Component.literal("« " + s.name + " » est réservée " + (direction ? "à la direction de " : "aux employés de ")
+                + fr.minenorth.api.MineNorth.companies().name(c.getSource().getServer(), id) + " (OP compris)."));
+        return 1;
     }
 
     private static int pompier(CommandContext<CommandSourceStack> c) {
@@ -198,6 +263,8 @@ public final class ShopCommands {
             if (s.requiresLicence()) b.append(", licence : ").append(PermisCompat.name(s.licence));
             if (s.policeOnly()) b.append(", ").append(PoliceCompat.label(s.policeGrade));
             if (s.pompier) b.append(", pompiers");
+            if (s.mairie) b.append(", mairie");
+            if (s.companyId != 0) b.append(", entreprise : ").append(AccessCompat.companyName(c.getSource().getServer(), s.companyId)).append(s.companyDirection ? " (direction)" : "");
             if (s.illegal) b.append(", ILLÉGALE");
         }
         String txt = b.toString();

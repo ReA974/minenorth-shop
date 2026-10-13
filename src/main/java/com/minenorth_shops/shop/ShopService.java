@@ -73,6 +73,7 @@ public final class ShopService {
     public static String transact(ServerPlayer p, Shop shop, ShopEntry e, int lots, Method method) {
         String restricted = PompierCompat.denial(p, shop);
         if (restricted == null) restricted = PoliceCompat.denial(p, shop);
+        if (restricted == null) restricted = com.minenorth_shops.AccessCompat.denial(p, shop);
         if (restricted != null) return restricted;
         String denied = PermisCompat.denial(p, shop.licence);
         if (denied != null) return denied;

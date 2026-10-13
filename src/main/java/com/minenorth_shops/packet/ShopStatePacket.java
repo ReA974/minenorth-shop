@@ -62,6 +62,7 @@ public class ShopStatePacket {
         if (open && message.isEmpty()) {
             String police = PompierCompat.denial(p, shop);
             if (police == null) police = PoliceCompat.denial(p, shop);
+            if (police == null) police = com.minenorth_shops.AccessCompat.denial(p, shop);
             if (police != null) message = police;
         }
         m.message = message;

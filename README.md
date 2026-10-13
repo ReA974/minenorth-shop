@@ -60,6 +60,17 @@ peuvent ouvrir la boutique et y acheter ; les ops peuvent la consulter. Réserv�
 Sans le mod Secours, la boutique est **bloquée** (même principe que la police). `restrictions.pompierServiceRequis = true` exige en plus
 d'être en service (tablette Secours).
 
+### Boutiques réservées à la mairie ou à une entreprise
+
+Dans le panneau d'édition, la liste **Accès** propose maintenant **Mairie**, **Entreprise** (tous les membres) et **Direction entr.** (patron et grades avec droit de gestion).
+Pour une entreprise, choisissez-la dans la liste déroulante **Entreprise** (toutes les entreprises actives, défilement à la molette). Les **OP** passent toujours.
+
+- **Mairie** : le maire élu et les agents qu'il a nommés dans la tablette de la mairie (mod État, via MineNorth API).
+- **Entreprise** : les membres de l'entreprise choisie (mod Entreprises). Si l'entreprise est dissoute, la boutique est refusée à tous sauf aux OP.
+- Commandes : `/shops mairie <id> <on|off>` ; `/shops entreprise <id> <nom|aucune> [direction]` (complétion des noms d'entreprise).
+- Même principe de sécurité que police / pompiers : sans le mod État (ou Entreprises), la boutique est **bloquée**.
+- Une boutique n'a qu'un seul accès réservé à la fois (police, pompiers, mairie ou entreprise).
+
 ### Boutiques illégales (deux entités, une seule présente à la fois)
 
 Liste **Statut → Illégale**, ou `/shops illegal <id> on [minutes] [distance]`. Assignez ensuite **2 entités** à la boutique avec l'outil de
