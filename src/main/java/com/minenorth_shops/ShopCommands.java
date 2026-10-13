@@ -141,7 +141,7 @@ public final class ShopCommands {
             return 0;
         }
         s.mairie = on;
-        if (on) { s.pompier = false; s.policeGrade = -1; s.companyId = 0; }
+        if (on) { s.pompier = false; s.policeGrade = -1; s.companyId = 0; s.companyName = ""; }
         ShopData.get(c.getSource().getServer()).changed();
         c.getSource().sendSystemMessage(Component.literal(on
                 ? "« " + s.name + " » est réservée à la mairie (maire, agents et OP)." + (AccessCompat.townHallAvailable() ? "" : " (mod État absent : boutique bloquée)")
@@ -158,6 +158,7 @@ public final class ShopCommands {
         String nom = StringArgumentType.getString(c, "nom").trim();
         if (nom.equalsIgnoreCase("aucune")) {
             s.companyId = 0;
+            s.companyName = "";
             s.companyDirection = false;
             ShopData.get(c.getSource().getServer()).changed();
             c.getSource().sendSystemMessage(Component.literal("« " + s.name + " » n'est plus réservée à une entreprise."));
@@ -169,6 +170,7 @@ public final class ShopCommands {
             return 0;
         }
         s.companyId = id;
+        s.companyName = fr.minenorth.api.MineNorth.companies().name(c.getSource().getServer(), id);
         s.companyDirection = direction;
         s.mairie = false; s.pompier = false; s.policeGrade = -1;
         ShopData.get(c.getSource().getServer()).changed();

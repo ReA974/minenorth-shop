@@ -33,6 +33,7 @@ public class AdminSyncPacket {
         m.open = open;
         m.focus = focus;
         m.message = message;
+        com.minenorth_shops.AccessCompat.resolveAll(server);
         m.shops.addAll(ShopData.get(server).all());
         m.permis = PermisCompat.available();
         m.licences.addAll(PermisCompat.licences());

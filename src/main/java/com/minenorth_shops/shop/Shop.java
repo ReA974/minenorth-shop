@@ -32,6 +32,8 @@ public class Shop {
     public boolean mairie;
     /** Réservée à une entreprise : 0 = non, > 0 = identifiant de l'entreprise, -1 = « entreprise » choisie mais pas encore désignée (boutique bloquée). */
     public int companyId;
+    /** Nom de l'entreprise (réglage à la main dans shops.json : "company") : converti en identifiant dès que le serveur connaît l'entreprise. */
+    public String companyName = "";
     /** Avec une entreprise : true = direction seulement (patron et grades avec droit de gestion), false = tous les membres. */
     public boolean companyDirection;
     /** Boutique illégale : deux entités (ou plus) lui sont assignées, une seule est présente à la fois (voir IllegalRotation). */
@@ -95,6 +97,7 @@ public class Shop {
         t.putBoolean("Pompier", pompier);
         t.putBoolean("Mairie", mairie);
         t.putInt("Company", companyId);
+        t.putString("CompanyName", companyName);
         t.putBoolean("CompanyDir", companyDirection);
         t.putBoolean("Illegal", illegal);
         t.putInt("IllegalMin", illegalMinutes);
@@ -120,6 +123,7 @@ public class Shop {
         s.pompier = t.getBoolean("Pompier");
         s.mairie = t.getBoolean("Mairie");
         s.companyId = t.getInt("Company");
+        s.companyName = t.getString("CompanyName");
         s.companyDirection = t.getBoolean("CompanyDir");
         s.illegal = t.getBoolean("Illegal");
         s.illegalMinutes = Math.max(0, t.getInt("IllegalMin"));
@@ -146,6 +150,7 @@ public class Shop {
         o.addProperty("pompier", pompier);
         o.addProperty("mairie", mairie);
         o.addProperty("companyId", companyId);
+        if (!companyName.isEmpty()) o.addProperty("company", companyName);
         o.addProperty("companyDirection", companyDirection);
         o.addProperty("illegal", illegal);
         o.addProperty("illegalMinutes", illegalMinutes);
@@ -170,6 +175,7 @@ public class Shop {
         if (o.has("pompier")) s.pompier = o.get("pompier").getAsBoolean();
         if (o.has("mairie")) s.mairie = o.get("mairie").getAsBoolean();
         if (o.has("companyId")) s.companyId = o.get("companyId").getAsInt();
+        if (o.has("company")) s.companyName = o.get("company").getAsString().trim();
         if (o.has("companyDirection")) s.companyDirection = o.get("companyDirection").getAsBoolean();
         if (o.has("illegal")) s.illegal = o.get("illegal").getAsBoolean();
         if (o.has("illegalMinutes")) s.illegalMinutes = Math.max(0, o.get("illegalMinutes").getAsInt());

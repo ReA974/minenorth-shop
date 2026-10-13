@@ -17,8 +17,30 @@ public final class AccessCompat {
 
     public static boolean companiesAvailable() { return MineNorth.companies() != CompanyService.NONE; }
 
+    /** Convertit le nom d'entreprise écrit dans shops.json en identifiant (dès que l'entreprise est connue). */
+    public static void resolve(net.minecraft.server.MinecraftServer server, Shop shop) {
+        if (shop.companyId != 0 || shop.companyName.isBlank() || !companiesAvailable()) return;
+        int id = MineNorth.companies().idOf(server, shop.companyName);
+        if (id <= 0) return;
+        shop.companyId = id;
+        shop.mairie = false;
+        shop.pompier = false;
+        shop.policeGrade = -1;
+        com.minenorth_shops.shop.ShopData.get(server).changed();
+    }
+
+    public static void resolveAll(net.minecraft.server.MinecraftServer server) {
+        for (Shop s : com.minenorth_shops.shop.ShopData.get(server).all()) resolve(server, s);
+    }
+
     /** Message de refus, ou null si le joueur peut commercer ici. */
     public static String denial(ServerPlayer p, Shop shop) {
+        resolve(p.server, shop);
+        if (shop.companyId == 0 && !shop.companyName.isBlank() && !shop.mairie) {
+            if (p.hasPermissions(2)) return null;
+            if (!companiesAvailable()) return "Boutique indisponible : réservée à une entreprise mais le mod Entreprises est absent.";
+            return "Cette boutique est réservée à l'entreprise « " + shop.companyName + " » (introuvable ou non active).";
+        }
         if (shop.mairie) {
             if (p.hasPermissions(2)) return null;
             if (!townHallAvailable()) return "Boutique indisponible : réservée à la mairie mais le mod État est absent.";

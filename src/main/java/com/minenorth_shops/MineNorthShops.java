@@ -46,6 +46,11 @@ public class MineNorthShops {
     }
 
     @SubscribeEvent
+    public void onServerStarted(net.minecraftforge.event.server.ServerStartedEvent e) {
+        AccessCompat.resolveAll(e.getServer());   // noms d'entreprise de shops.json -> identifiants
+    }
+
+    @SubscribeEvent
     public void onCommands(RegisterCommandsEvent e) {
         ShopCommands.register(e.getDispatcher());
     }

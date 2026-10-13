@@ -165,6 +165,7 @@ public class AdminEditPacket {
                 s.pompier = false;
                 s.policeGrade = -1;
                 s.mairie = false;
+                if (!a.equals("entreprise") && !a.equals("direction")) s.companyName = "";
                 if (a.equals("entreprise") || a.equals("direction")) {
                     s.companyDirection = a.equals("direction");
                     if (s.companyId == 0) s.companyId = -1;     // à désigner dans la liste « Entreprise »
@@ -203,6 +204,7 @@ public class AdminEditPacket {
                 String txt = m.text.trim();
                 if (txt.isEmpty()) {
                     s.companyId = 0;
+                    s.companyName = "";
                     s.companyDirection = false;
                     d.changed();
                     return "Plus de réservation à une entreprise.";
@@ -213,6 +215,7 @@ public class AdminEditPacket {
                 String cname = fr.minenorth.api.MineNorth.companies().name(p.server, cid);
                 if (cname.isEmpty()) return "Entreprise introuvable.";
                 s.companyId = cid;
+                s.companyName = cname;
                 s.pompier = false;
                 s.mairie = false;
                 s.policeGrade = -1;
