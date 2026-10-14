@@ -91,6 +91,7 @@ public final class ShopService {
         } catch (ArithmeticException ex) {
             return "Quantité trop grande.";
         }
+        if (shop.mode == ShopMode.SELL) total = MineNorth.discounted(p.server, p.getUUID(), total);   // remise de grade (VIP)
         String what = items + "x " + e.item.getHoverName().getString();
         String source = "boutique:" + shop.id;
 
