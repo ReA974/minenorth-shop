@@ -35,10 +35,10 @@ public final class Network {
 
     public static void register() {
         int id = 0;
-        CHANNEL.registerMessage(id++, ShopStatePacket.class, ShopStatePacket::encode, ShopStatePacket::decode, ShopStatePacket::handle);
-        CHANNEL.registerMessage(id++, ShopActionPacket.class, ShopActionPacket::encode, ShopActionPacket::decode, ShopActionPacket::handle);
-        CHANNEL.registerMessage(id++, AdminSyncPacket.class, AdminSyncPacket::encode, AdminSyncPacket::decode, AdminSyncPacket::handle);
-        CHANNEL.registerMessage(id++, AdminEditPacket.class, AdminEditPacket::encode, AdminEditPacket::decode, AdminEditPacket::handle);
+        CHANNEL.registerMessage(id++, ShopStatePacket.class, ShopStatePacket::encode, ShopStatePacket::decode, ShopStatePacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_CLIENT));
+        CHANNEL.registerMessage(id++, ShopActionPacket.class, ShopActionPacket::encode, ShopActionPacket::decode, ShopActionPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(id++, AdminSyncPacket.class, AdminSyncPacket::encode, AdminSyncPacket::decode, AdminSyncPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_CLIENT));
+        CHANNEL.registerMessage(id++, AdminEditPacket.class, AdminEditPacket::encode, AdminEditPacket::decode, AdminEditPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER));
     }
 
     // ---------- boutique côté joueur ----------

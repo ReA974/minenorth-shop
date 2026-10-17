@@ -15,6 +15,9 @@ import net.minecraft.world.item.ItemStack;
 public final class ShopService {
     public enum Method { CASH, CARD }
 
+    /** Objets au plus par achat / vente : au-delà, un inventaire plein lâcherait des milliers de piles au sol (lag du serveur). */
+    public static final int MAX_ITEMS_PER_TRANSACTION = 4096;
+
     private ShopService() {}
 
     /** Emplacements pris en compte : inventaire principal + main secondaire (pas l'armure). */
@@ -91,6 +94,7 @@ public final class ShopService {
         } catch (ArithmeticException ex) {
             return "Quantité trop grande.";
         }
+        if (items > MAX_ITEMS_PER_TRANSACTION) return "Trop d'objets d'un coup (" + MAX_ITEMS_PER_TRANSACTION + " au plus par transaction).";
         if (shop.mode == ShopMode.SELL) total = MineNorth.discounted(p.server, p.getUUID(), total);   // remise de grade (VIP)
         String what = items + "x " + e.item.getHoverName().getString();
         String source = "boutique:" + shop.id;
