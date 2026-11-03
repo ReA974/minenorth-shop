@@ -274,6 +274,54 @@
           "category": "Sweats"
         },
         {
+          "item": "minenorth_vetements:tshirt_blanc_chestplate",
+          "quantity": 1,
+          "price": 1500,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:tshirt_noir_chestplate",
+          "quantity": 1,
+          "price": 1500,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:tshirt_marine_raye_chestplate",
+          "quantity": 1,
+          "price": 3500,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:debardeur_blanc_chestplate",
+          "quantity": 1,
+          "price": 1200,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:chemise_blanche_chestplate",
+          "quantity": 1,
+          "price": 4000,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:chemise_carreaux_chestplate",
+          "quantity": 1,
+          "price": 4500,
+          "category": "T-shirts & chemises"
+        },
+        {
+          "item": "minenorth_vetements:bermuda_cargo_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Shorts"
+        },
+        {
+          "item": "minenorth_vetements:short_jean_leggings",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Shorts"
+        },
+        {
           "item": "minenorth_vetements:jogging_gris_leggings",
           "quantity": 1,
           "price": 4000,
@@ -678,6 +726,96 @@
           "quantity": 1,
           "price": 20000,
           "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_paillettes_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:jupe_paillettes_leggings",
+          "quantity": 1,
+          "price": 26000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_moulante_chestplate",
+          "quantity": 1,
+          "price": 16000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:jupe_moulante_leggings",
+          "quantity": 1,
+          "price": 9000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:costume_miami_rose_chestplate",
+          "quantity": 1,
+          "price": 29000,
+          "category": "Miami"
+        },
+        {
+          "item": "minenorth_vetements:pantalon_miami_rose_leggings",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Miami"
+        },
+        {
+          "item": "minenorth_vetements:costume_miami_ciel_chestplate",
+          "quantity": 1,
+          "price": 29000,
+          "category": "Miami"
+        },
+        {
+          "item": "minenorth_vetements:pantalon_miami_ciel_leggings",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Miami"
+        },
+        {
+          "item": "minenorth_vetements:mocassins_cognac_boots",
+          "quantity": 1,
+          "price": 23000,
+          "category": "Souliers"
+        },
+        {
+          "item": "minenorth_vetements:mocassins_noirs_boots",
+          "quantity": 1,
+          "price": 23000,
+          "category": "Souliers"
+        },
+        {
+          "item": "minenorth_vetements:derbies_marron_boots",
+          "quantity": 1,
+          "price": 19000,
+          "category": "Souliers"
+        },
+        {
+          "item": "minenorth_vetements:escarpins_noirs_boots",
+          "quantity": 1,
+          "price": 49000,
+          "category": "Talons"
+        },
+        {
+          "item": "minenorth_vetements:escarpins_rouges_boots",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Talons"
+        },
+        {
+          "item": "minenorth_vetements:escarpins_nude_boots",
+          "quantity": 1,
+          "price": 16000,
+          "category": "Talons"
+        },
+        {
+          "item": "minenorth_vetements:sandales_talons_argent_boots",
+          "quantity": 1,
+          "price": 17000,
+          "category": "Talons"
         }
       ]
     },
@@ -746,6 +884,364 @@
           "quantity": 1,
           "price": 3000,
           "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:maillot_une_piece_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:short_bain_flamants_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:chemise_hawaienne_chestplate",
+          "quantity": 1,
+          "price": 5000,
+          "category": "Chemises"
+        },
+        {
+          "item": "minenorth_vetements:chemise_hawaienne_rouge_chestplate",
+          "quantity": 1,
+          "price": 5000,
+          "category": "Chemises"
+        },
+        {
+          "item": "minenorth_vetements:tongs_havaianna_boots",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Tongs & claquettes"
+        },
+        {
+          "item": "minenorth_vetements:tongs_noires_boots",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Tongs & claquettes"
+        },
+        {
+          "item": "minenorth_vetements:claquettes_nayk_boots",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Tongs & claquettes"
+        },
+        {
+          "item": "minenorth_vetements:claquettes_guchi_boots",
+          "quantity": 1,
+          "price": 39000,
+          "category": "Tongs & claquettes"
+        }
+      ]
+    },
+    {
+      "name": "Sneakers & Co",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:baskets_running_blanches_boots",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_running_noires_boots",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_new_grises_boots",
+          "quantity": 1,
+          "price": 11000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_montantes_panda_boots",
+          "quantity": 1,
+          "price": 17000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_toile_noires_boots",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_chunky_boots",
+          "quantity": 1,
+          "price": 69000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:baskets_luxe_blanches_boots",
+          "quantity": 1,
+          "price": 59000,
+          "category": "Baskets"
+        },
+        {
+          "item": "minenorth_vetements:chelsea_noires_boots",
+          "quantity": 1,
+          "price": 16000,
+          "category": "Bottines & boots"
+        },
+        {
+          "item": "minenorth_vetements:chelsea_daim_boots",
+          "quantity": 1,
+          "price": 15000,
+          "category": "Bottines & boots"
+        },
+        {
+          "item": "minenorth_vetements:santiags_boots",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Bottines & boots"
+        },
+        {
+          "item": "minenorth_vetements:boots_timberlande_boots",
+          "quantity": 1,
+          "price": 19000,
+          "category": "Bottines & boots"
+        },
+        {
+          "item": "minenorth_vetements:rangers_noires_boots",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Bottines & boots"
+        }
+      ]
+    },
+    {
+      "name": "Sport Arena",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:maillot_foot_chestplate",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Maillots"
+        },
+        {
+          "item": "minenorth_vetements:maillot_basket_chestplate",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Maillots"
+        },
+        {
+          "item": "minenorth_vetements:short_sport_leggings",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Shorts"
+        },
+        {
+          "item": "minenorth_vetements:short_basket_leggings",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Shorts"
+        },
+        {
+          "item": "minenorth_vetements:brassiere_sport_chestplate",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Femme"
+        },
+        {
+          "item": "minenorth_vetements:legging_sport_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Femme"
+        }
+      ]
+    },
+    {
+      "name": "Boutique Lola",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:crop_top_blanc_chestplate",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Hauts"
+        },
+        {
+          "item": "minenorth_vetements:crop_top_noir_chestplate",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Hauts"
+        },
+        {
+          "item": "minenorth_vetements:top_bretelles_chestplate",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Hauts"
+        },
+        {
+          "item": "minenorth_vetements:jupe_plissee_leggings",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Jupes & jeans"
+        },
+        {
+          "item": "minenorth_vetements:mini_jupe_cuir_leggings",
+          "quantity": 1,
+          "price": 9500,
+          "category": "Jupes & jeans"
+        },
+        {
+          "item": "minenorth_vetements:jean_mom_leggings",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Jupes & jeans"
+        }
+      ]
+    },
+    {
+      "name": "Grand Nord Outdoor",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:parka_fourrure_kaki_chestplate",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Parkas"
+        },
+        {
+          "item": "minenorth_vetements:parka_fourrure_noire_chestplate",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Parkas"
+        },
+        {
+          "item": "minenorth_vetements:chapka_helmet",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Parkas"
+        },
+        {
+          "item": "minenorth_vetements:apres_ski_boots",
+          "quantity": 1,
+          "price": 21000,
+          "category": "Bottes d'hiver"
+        },
+        {
+          "item": "minenorth_vetements:bottes_fourrees_boots",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Bottes d'hiver"
+        }
+      ]
+    },
+    {
+      "name": "Pro Équipement",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:gilet_chantier_chestplate",
+          "quantity": 1,
+          "price": 3500,
+          "category": "BTP"
+        },
+        {
+          "item": "minenorth_vetements:pantalon_travail_leggings",
+          "quantity": 1,
+          "price": 6000,
+          "category": "BTP"
+        },
+        {
+          "item": "minenorth_vetements:casque_chantier_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "BTP"
+        },
+        {
+          "item": "minenorth_vetements:casque_chantier_blanc_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "BTP"
+        },
+        {
+          "item": "minenorth_vetements:chaussures_securite_boots",
+          "quantity": 1,
+          "price": 7500,
+          "category": "BTP"
+        },
+        {
+          "item": "minenorth_vetements:veste_mecano_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Garage"
+        },
+        {
+          "item": "minenorth_vetements:pantalon_mecano_leggings",
+          "quantity": 1,
+          "price": 5000,
+          "category": "Garage"
+        },
+        {
+          "item": "minenorth_vetements:veste_cuisinier_chestplate",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Cuisine"
+        },
+        {
+          "item": "minenorth_vetements:pantalon_cuisinier_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Cuisine"
+        },
+        {
+          "item": "minenorth_vetements:toque_cuisinier_helmet",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Cuisine"
+        },
+        {
+          "item": "minenorth_vetements:sabots_cuisine_boots",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Cuisine"
+        },
+        {
+          "item": "minenorth_vetements:sabots_noirs_boots",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Cuisine"
+        },
+        {
+          "item": "minenorth_vetements:tenue_serveur_chestplate",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Salle"
+        },
+        {
+          "item": "minenorth_vetements:tablier_serveur_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Salle"
+        },
+        {
+          "item": "minenorth_vetements:veste_livreur_chestplate",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Livraison"
+        },
+        {
+          "item": "minenorth_vetements:casquette_livreur_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Livraison"
         }
       ]
     },
@@ -1037,6 +1533,48 @@
           "item": "minenorth_vetements:sacoche_noire",
           "quantity": 1,
           "price": 12000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:banane_nayk",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sacoche_lacroste",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_sport_noir",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_sport_bleu",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_rando_orange",
+          "quantity": 1,
+          "price": 11000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_rando_vert",
+          "quantity": 1,
+          "price": 11000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_luxe_vuiten",
+          "quantity": 1,
+          "price": 190000,
           "category": "Sacs"
         },
         {

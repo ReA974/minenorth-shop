@@ -71,6 +71,9 @@ SHOPS = [
     shop("Urban Basics", [
         ("Sweats", outfit("sweat_gris", 55) + outfit("sweat_noir", 55) + outfit("sweat_beige", 55)
          + outfit("sweat_bordeaux", 55) + outfit("sweat_vert", 55)),
+        ("T-shirts & chemises", outfit("tshirt_blanc", 15) + outfit("tshirt_noir", 15) + outfit("tshirt_marine_raye", 35)
+         + outfit("debardeur_blanc", 12) + outfit("chemise_blanche", 40) + outfit("chemise_carreaux", 45)),
+        ("Shorts", outfit("bermuda_cargo", bas=35) + outfit("short_jean", bas=30)),
         ("Pantalons", outfit("jogging_gris", bas=40) + outfit("jogging_noir", bas=40) + outfit("cargo_kaki", bas=55)
          + outfit("cargo_noir", bas=55) + outfit("cargo_beige", bas=55) + outfit("jean_brut", bas=65) + outfit("jean_noir", bas=65)),
     ]),
@@ -93,13 +96,57 @@ SHOPS = [
          + outfit("costard_noir_pin", 450) + outfit("costard_marine_pin", 450) + outfit("costard_gris_pin", 450)
          + outfit("smoking", 520, 240, 260)),
         ("Soirée", outfit("robe_soiree_rouge", 450, 150, 240) + outfit("robe_soiree_noire", 450, 150, 240)
-         + outfit("robe_cocktail", 320, 120, 200)),
+         + outfit("robe_cocktail", 320, 120, 200) + outfit("robe_paillettes", 380) + outfit("jupe_paillettes", bas=260)
+         + outfit("robe_moulante", 160) + outfit("jupe_moulante", bas=90)),
+        ("Miami", outfit("costume_miami_rose", 290) + outfit("pantalon_miami_rose", bas=140)
+         + outfit("costume_miami_ciel", 290) + outfit("pantalon_miami_ciel", bas=140)),
+        ("Souliers", outfit("mocassins_cognac", pieds=230) + outfit("mocassins_noirs", pieds=230) + outfit("derbies_marron", pieds=190)),
+        ("Talons", outfit("escarpins_noirs", pieds=490) + outfit("escarpins_rouges", pieds=180) + outfit("escarpins_nude", pieds=160)
+         + outfit("sandales_talons_argent", pieds=170)),
     ]),
     # --- plage
     shop("Riviera Plage", [
         ("Été", outfit("robe_ete", 85, 35)),
         ("Bain", outfit("bikini_rouge", 45, 35) + outfit("bikini_turquoise", 45, 35) + outfit("bikini_noir", 60, 45)
-         + outfit("maillot_bleu", bas=30) + outfit("maillot_tropical", bas=30)),
+         + outfit("maillot_bleu", bas=30) + outfit("maillot_tropical", bas=30) + outfit("maillot_une_piece", 55)
+         + outfit("short_bain_flamants", bas=35)),
+        ("Chemises", outfit("chemise_hawaienne", 50) + outfit("chemise_hawaienne_rouge", 50)),
+        ("Tongs & claquettes", outfit("tongs_havaianna", pieds=25) + outfit("tongs_noires", pieds=15)
+         + outfit("claquettes_nayk", pieds=35) + outfit("claquettes_guchi", pieds=390)),
+    ]),
+    # --- chaussures : baskets et boots
+    shop("Sneakers & Co", [
+        ("Baskets", outfit("baskets_running_blanches", pieds=140) + outfit("baskets_running_noires", pieds=140)
+         + outfit("baskets_new_grises", pieds=110) + outfit("baskets_montantes_panda", pieds=170) + outfit("baskets_toile_noires", pieds=65)
+         + outfit("baskets_chunky", pieds=690) + outfit("baskets_luxe_blanches", pieds=590)),
+        ("Bottines & boots", outfit("chelsea_noires", pieds=160) + outfit("chelsea_daim", pieds=150) + outfit("santiags", pieds=220)
+         + outfit("boots_timberlande", pieds=190) + outfit("rangers_noires", pieds=120)),
+    ]),
+    # --- sport
+    shop("Sport Arena", [
+        ("Maillots", outfit("maillot_foot", 70) + outfit("maillot_basket", 65)),
+        ("Shorts", outfit("short_sport", bas=25) + outfit("short_basket", bas=40)),
+        ("Femme", outfit("brassiere_sport", 35) + outfit("legging_sport", bas=45)),
+    ]),
+    # --- mode femme
+    shop("Boutique Lola", [
+        ("Hauts", outfit("crop_top_blanc", 25) + outfit("crop_top_noir", 25) + outfit("top_bretelles", 45)),
+        ("Jupes & jeans", outfit("jupe_plissee", bas=55) + outfit("mini_jupe_cuir", bas=95) + outfit("jean_mom", bas=70)),
+    ]),
+    # --- hiver
+    shop("Grand Nord Outdoor", [
+        ("Parkas", outfit("parka_fourrure_kaki", 320) + outfit("parka_fourrure_noire", 320) + outfit("chapka", tete=60)),
+        ("Bottes d'hiver", outfit("apres_ski", pieds=210) + outfit("bottes_fourrees", pieds=180)),
+    ]),
+    # --- tenues de travail (entreprises RP) : BTP, garage, cuisine, salle, livraison
+    shop("Pro Équipement", [
+        ("BTP", outfit("gilet_chantier", 35) + outfit("pantalon_travail", bas=60) + outfit("casque_chantier", tete=25)
+         + outfit("casque_chantier_blanc", tete=25) + outfit("chaussures_securite", pieds=75)),
+        ("Garage", outfit("veste_mecano", 55) + outfit("pantalon_mecano", bas=50)),
+        ("Cuisine", outfit("veste_cuisinier", 45) + outfit("pantalon_cuisinier", bas=35) + outfit("toque_cuisinier", tete=15)
+         + outfit("sabots_cuisine", pieds=40) + outfit("sabots_noirs", pieds=40)),
+        ("Salle", outfit("tenue_serveur", 60) + outfit("tablier_serveur", bas=45)),
+        ("Livraison", outfit("veste_livreur", 70) + outfit("casquette_livreur", tete=20)),
     ]),
     # --- couvre-chefs (emplacement casque)
     shop("Chapellerie du Nord", [
@@ -120,7 +167,9 @@ SHOPS = [
         ("Bijoux", [(V + "chaine_or", 1500), (V + "chaine_argent", 450), (V + "chaine_croix", 650), (V + "collier_perles", 800)]),
         ("Montres", [(V + "montre_or", 4500), (V + "montre_argent", 1800), (V + "montre_sport", 220), (V + "gourmette_or", 900)]),
         ("Sacs", [(V + "sac_dos_noir", 60), (V + "sac_dos_rouge", 60), (V + "sac_dos_kaki", 60), (V + "banane_noire", 40),
-                  (V + "banane_guchi", 480), (V + "sacoche_noire", 120)]),
+                  (V + "banane_guchi", 480), (V + "sacoche_noire", 120), (V + "banane_nayk", 45), (V + "sacoche_lacroste", 140),
+                  (V + "sac_sport_noir", 70), (V + "sac_sport_bleu", 70), (V + "sac_rando_orange", 110), (V + "sac_rando_vert", 110),
+                  (V + "sac_luxe_vuiten", 1900)]),
         ("Gants & écharpes", [(V + "gants_cuir_noir", 75), (V + "gants_cuir_marron", 75), (V + "gants_laine", 25),
                               (V + "echarpe_grise_helmet", 35), (V + "echarpe_rouge_helmet", 55), (V + "echarpe_noire", 35)]),
         ("Visage", [(V + "bandana_rouge_helmet", 15), (V + "bandana_noir_helmet", 15),
@@ -146,6 +195,20 @@ SHOPS = [
 ]
 
 
+# Jamais en vente libre : tenues de service (pompiers, SAMU, Police Nationale, RAID : données par les mods métiers / les OP)
+# et objets réservés aux grades VIP (VipItems du mod Vêtements).
+RESERVES = {V + i for i in (
+    "veste_feu_marine_chestplate", "veste_feu_sable_chestplate", "surpantalon_feu_marine_leggings", "surpantalon_feu_sable_leggings",
+    "bottes_feu_boots", "parka_pompier_chestplate", "polo_pompier_chestplate", "tshirt_pompier_chestplate", "pantalon_pompier_leggings",
+    "casquette_pompier_helmet", "casque_f1_helmet", "casque_f1_blanc_helmet", "gants_pompier",
+    "veste_samu_chestplate", "veste_ambulancier_chestplate", "polo_samu_chestplate", "pantalon_samu_leggings", "casquette_samu_helmet",
+    "chaussures_intervention_boots",
+    "polo_police_sous_officier_chestplate", "polo_police_officier_chestplate", "polo_police_commissaire_chestplate",
+    "blouson_police_sous_officier_chestplate", "blouson_police_officier_chestplate", "blouson_police_commissaire_chestplate",
+    "parka_police_chestplate", "pantalon_police_leggings", "casquette_police_helmet", "blouson_raid_chestplate", "pantalon_raid_leggings",
+    "chaine_vip", "montre_vip", "chaine_diamant", "montre_diamant", "lunettes_holo", "sac_vip")}
+
+
 def main():
     ids = known_ids()
     bad, seen = [], set()
@@ -156,10 +219,11 @@ def main():
             assert len(e.get("category", "")) <= 20, e["category"]
             if e["item"] not in ids: bad.append(e["item"])
             if e["item"].startswith(V): seen.add(e["item"])
+            assert e["item"] not in RESERVES, "en vente libre interdite : " + e["item"]
     if bad:
         sys.exit("Objets inconnus : " + ", ".join(bad))
     vet = sorted(i for i in ids if i.startswith(V) and not i.split(":")[1].startswith(("itemGroup",)))
-    missing = [i for i in vet if i not in seen]
+    missing = [i for i in vet if i not in seen and i not in RESERVES]
     print("Vêtements non vendus :", missing or "aucun")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     pack = {"_info": "Pack de boutiques MineNorth. Import : /shops importer boutiques-minenorth. Crée les boutiques absentes (par nom) "

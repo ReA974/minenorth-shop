@@ -98,22 +98,29 @@ repoussé jusqu'à ce qu'il parte.
 
 ### Boutiques prêtes à l'emploi (packs)
 
-Le mod fournit le pack **`boutiques-minenorth`** : 9 boutiques remplies (magasins de vêtements par enseigne fictive, accessoires,
-animalerie, et compléments pour la boutique clandestine de drogue). Catalogue complet (ids et prix) : [BOUTIQUES.md](BOUTIQUES.md).
+Le mod fournit le pack **`boutiques-minenorth`** : 14 boutiques remplies (magasins de vêtements par enseigne fictive, chaussures, sport,
+tenues de travail, accessoires, animalerie, et compléments pour la boutique clandestine de drogue). Catalogue complet (ids et prix) : [BOUTIQUES.md](BOUTIQUES.md).
 
 | # | Boutique | Contenu | Prix |
 |---|---|---|---|
 | 1 | Northside Streetwear | survêtements de marque, hype (box logo, rétro), denim, bombers | 30 – 180 € |
-| 2 | Urban Basics | sweats à capuche, joggings, cargos, jeans | 40 – 65 € |
+| 2 | Urban Basics | t-shirts, marinière, débardeur, chemises, sweats à capuche, shorts, joggings, cargos, jeans | 12 – 65 € |
 | 3 | Maison Aurèle | luxe : pièces griffées, doudounes, manteaux, perfectos, cagoules griffées | 60 – 950 € |
-| 4 | Atelier Valmont | costumes, smoking, robes de soirée et cocktail | 120 – 520 € |
-| 5 | Riviera Plage | robe d'été, bikinis, shorts de bain | 30 – 85 € |
-| 6 | Chapellerie du Nord | chapeaux, casquettes, bonnets, bobs | 20 – 160 € |
-| 7 | Comptoir Accessoires | lunettes, bijoux, montres, sacs, gants, écharpes, bandanas, cagoules | 15 – 4 500 € |
-| 8 | Animalerie Patte d'Or | croquettes (5 sortes), 8 accessoires d'animaux, collier d'identification | 8 – 50 € |
-| 9 | Vendeur outils drogue | graines (cannabis, coca, éphédra, **pavot**), tentes, lampe UV, labo, tables, sachets | **illégale** |
+| 4 | Atelier Valmont | costumes, smoking, costumes Miami, robes de soirée, cocktail, paillettes, moulante, souliers, talons | 90 – 520 € |
+| 5 | Riviera Plage | robe d'été, bikinis, maillot une pièce, shorts de bain, chemises hawaïennes, tongs, claquettes | 15 – 390 € |
+| 6 | Sneakers & Co | baskets (running, montantes, toile, chunky, luxe), bottines Chelsea, santiags, boots, rangers | 65 – 690 € |
+| 7 | Sport Arena | maillots de foot et de basket, shorts, brassière, legging | 25 – 70 € |
+| 8 | Boutique Lola | crop tops, top à bretelles, jupe plissée, mini-jupe en cuir, jean mom | 25 – 95 € |
+| 9 | Grand Nord Outdoor | parkas fourrées, chapka, après-ski, bottes fourrées | 60 – 320 € |
+| 10 | Pro Équipement | tenues de travail : BTP, garage, cuisine, salle (serveur), livraison | 15 – 75 € |
+| 11 | Chapellerie du Nord | chapeaux, casquettes, bonnets, bobs | 20 – 160 € |
+| 12 | Comptoir Accessoires | lunettes, bijoux, montres, sacs (dont sacs de rangement), gants, écharpes, bandanas, cagoules | 15 – 4 500 € |
+| 13 | Animalerie Patte d'Or | croquettes (5 sortes), 8 accessoires d'animaux, collier d'identification | 8 – 50 € |
+| 14 | Vendeur outils drogue | graines (cannabis, coca, éphédra, **pavot**), tentes, lampe UV, labo, tables, sachets | **illégale** |
 
-Tous les objets du mod `minenorth-vetements` sont vendus quelque part (vérifié par le script). Le n° réel de chaque boutique est donné
+Tous les objets du mod `minenorth-vetements` sont vendus quelque part (vérifié par le script), **sauf** la liste `RESERVES` de
+`tools/gen_pack.py`, que le script interdit dans toutes les boutiques : tenues de service pompiers, SAMU, Police Nationale et RAID
+(données par les mods métiers ou les OP) et objets réservés aux grades VIP. Le n° réel de chaque boutique est donné
 par l'import (ils suivent les boutiques déjà présentes sur le serveur).
 
 **Importer** (op niveau 2) : `/shops importer boutiques-minenorth` (`/shops importer` seul liste les packs).
@@ -124,6 +131,14 @@ par l'import (ils suivent les boutiques déjà présentes sur le serveur).
 - Les packs sont dans `config/minenorth_shops/packs/` : le pack fourni y est copié s'il n'y est pas (jamais écrasé). Un pack se modifie
   à la main (même format que `shops.json`, prix en centimes, `id` inutile) ou se régénère : `python tools/gen_pack.py` (vérifie les ids
   dans les fichiers de langue des mods, réécrit le pack et `BOUTIQUES.md`).
+
+**Mise à jour du 03/11/2026 (garde-robe et chaussures)** : le pack passe de 9 à 14 boutiques.
+1. Copier le nouveau `config/minenorth_shops/packs/boutiques-minenorth.json` du paquet serveur (le jar ne remplace jamais un pack déjà présent
+   dans `config/`), avec le nouveau `mods/minenorth-vetements-1.0.0.jar` (sinon les nouveaux objets sont ignorés à l'import).
+2. `/shops importer boutiques-minenorth` : crée **Sneakers & Co**, **Sport Arena**, **Boutique Lola**, **Grand Nord Outdoor** et
+   **Pro Équipement**, et ajoute leurs nouveaux articles à Urban Basics, Atelier Valmont, Riviera Plage et Comptoir Accessoires (prix et
+   réglages existants inchangés). Le message indique combien de boutiques sont créées et d'articles ajoutés.
+3. Poser un vendeur pour chacune des 5 nouvelles boutiques (ci-dessous). Pro Équipement peut être réservée à une entreprise (`company`).
 
 **Poser un vendeur** (pour chaque boutique, au bon endroit) :
 1. Faire apparaître un PNJ, par ex. `/summon villager ~ ~ ~ {VillagerData:{profession:"minecraft:nitwit"},CustomName:'"Maison Aurèle"'}`

@@ -54,6 +54,14 @@ Généré par `tools/gen_pack.py` (ne pas éditer à la main). Import et pose de
 | Sweats | `minenorth_vetements:sweat_beige_chestplate` | 1 | 55,00 € |
 | Sweats | `minenorth_vetements:sweat_bordeaux_chestplate` | 1 | 55,00 € |
 | Sweats | `minenorth_vetements:sweat_vert_chestplate` | 1 | 55,00 € |
+| T-shirts & chemises | `minenorth_vetements:tshirt_blanc_chestplate` | 1 | 15,00 € |
+| T-shirts & chemises | `minenorth_vetements:tshirt_noir_chestplate` | 1 | 15,00 € |
+| T-shirts & chemises | `minenorth_vetements:tshirt_marine_raye_chestplate` | 1 | 35,00 € |
+| T-shirts & chemises | `minenorth_vetements:debardeur_blanc_chestplate` | 1 | 12,00 € |
+| T-shirts & chemises | `minenorth_vetements:chemise_blanche_chestplate` | 1 | 40,00 € |
+| T-shirts & chemises | `minenorth_vetements:chemise_carreaux_chestplate` | 1 | 45,00 € |
+| Shorts | `minenorth_vetements:bermuda_cargo_leggings` | 1 | 35,00 € |
+| Shorts | `minenorth_vetements:short_jean_leggings` | 1 | 30,00 € |
 | Pantalons | `minenorth_vetements:jogging_gris_leggings` | 1 | 40,00 € |
 | Pantalons | `minenorth_vetements:jogging_noir_leggings` | 1 | 40,00 € |
 | Pantalons | `minenorth_vetements:cargo_kaki_leggings` | 1 | 55,00 € |
@@ -129,6 +137,21 @@ Généré par `tools/gen_pack.py` (ne pas éditer à la main). Import et pose de
 | Soirée | `minenorth_vetements:robe_cocktail_chestplate` | 1 | 320,00 € |
 | Soirée | `minenorth_vetements:robe_cocktail_leggings` | 1 | 120,00 € |
 | Soirée | `minenorth_vetements:robe_cocktail_boots` | 1 | 200,00 € |
+| Soirée | `minenorth_vetements:robe_paillettes_chestplate` | 1 | 380,00 € |
+| Soirée | `minenorth_vetements:jupe_paillettes_leggings` | 1 | 260,00 € |
+| Soirée | `minenorth_vetements:robe_moulante_chestplate` | 1 | 160,00 € |
+| Soirée | `minenorth_vetements:jupe_moulante_leggings` | 1 | 90,00 € |
+| Miami | `minenorth_vetements:costume_miami_rose_chestplate` | 1 | 290,00 € |
+| Miami | `minenorth_vetements:pantalon_miami_rose_leggings` | 1 | 140,00 € |
+| Miami | `minenorth_vetements:costume_miami_ciel_chestplate` | 1 | 290,00 € |
+| Miami | `minenorth_vetements:pantalon_miami_ciel_leggings` | 1 | 140,00 € |
+| Souliers | `minenorth_vetements:mocassins_cognac_boots` | 1 | 230,00 € |
+| Souliers | `minenorth_vetements:mocassins_noirs_boots` | 1 | 230,00 € |
+| Souliers | `minenorth_vetements:derbies_marron_boots` | 1 | 190,00 € |
+| Talons | `minenorth_vetements:escarpins_noirs_boots` | 1 | 490,00 € |
+| Talons | `minenorth_vetements:escarpins_rouges_boots` | 1 | 180,00 € |
+| Talons | `minenorth_vetements:escarpins_nude_boots` | 1 | 160,00 € |
+| Talons | `minenorth_vetements:sandales_talons_argent_boots` | 1 | 170,00 € |
 
 ## Riviera Plage
 
@@ -144,6 +167,84 @@ Généré par `tools/gen_pack.py` (ne pas éditer à la main). Import et pose de
 | Bain | `minenorth_vetements:bikini_noir_leggings` | 1 | 45,00 € |
 | Bain | `minenorth_vetements:maillot_bleu_leggings` | 1 | 30,00 € |
 | Bain | `minenorth_vetements:maillot_tropical_leggings` | 1 | 30,00 € |
+| Bain | `minenorth_vetements:maillot_une_piece_chestplate` | 1 | 55,00 € |
+| Bain | `minenorth_vetements:short_bain_flamants_leggings` | 1 | 35,00 € |
+| Chemises | `minenorth_vetements:chemise_hawaienne_chestplate` | 1 | 50,00 € |
+| Chemises | `minenorth_vetements:chemise_hawaienne_rouge_chestplate` | 1 | 50,00 € |
+| Tongs & claquettes | `minenorth_vetements:tongs_havaianna_boots` | 1 | 25,00 € |
+| Tongs & claquettes | `minenorth_vetements:tongs_noires_boots` | 1 | 15,00 € |
+| Tongs & claquettes | `minenorth_vetements:claquettes_nayk_boots` | 1 | 35,00 € |
+| Tongs & claquettes | `minenorth_vetements:claquettes_guchi_boots` | 1 | 390,00 € |
+
+## Sneakers & Co
+
+| Rubrique | Objet | Lot | Prix |
+|---|---|---|---|
+| Baskets | `minenorth_vetements:baskets_running_blanches_boots` | 1 | 140,00 € |
+| Baskets | `minenorth_vetements:baskets_running_noires_boots` | 1 | 140,00 € |
+| Baskets | `minenorth_vetements:baskets_new_grises_boots` | 1 | 110,00 € |
+| Baskets | `minenorth_vetements:baskets_montantes_panda_boots` | 1 | 170,00 € |
+| Baskets | `minenorth_vetements:baskets_toile_noires_boots` | 1 | 65,00 € |
+| Baskets | `minenorth_vetements:baskets_chunky_boots` | 1 | 690,00 € |
+| Baskets | `minenorth_vetements:baskets_luxe_blanches_boots` | 1 | 590,00 € |
+| Bottines & boots | `minenorth_vetements:chelsea_noires_boots` | 1 | 160,00 € |
+| Bottines & boots | `minenorth_vetements:chelsea_daim_boots` | 1 | 150,00 € |
+| Bottines & boots | `minenorth_vetements:santiags_boots` | 1 | 220,00 € |
+| Bottines & boots | `minenorth_vetements:boots_timberlande_boots` | 1 | 190,00 € |
+| Bottines & boots | `minenorth_vetements:rangers_noires_boots` | 1 | 120,00 € |
+
+## Sport Arena
+
+| Rubrique | Objet | Lot | Prix |
+|---|---|---|---|
+| Maillots | `minenorth_vetements:maillot_foot_chestplate` | 1 | 70,00 € |
+| Maillots | `minenorth_vetements:maillot_basket_chestplate` | 1 | 65,00 € |
+| Shorts | `minenorth_vetements:short_sport_leggings` | 1 | 25,00 € |
+| Shorts | `minenorth_vetements:short_basket_leggings` | 1 | 40,00 € |
+| Femme | `minenorth_vetements:brassiere_sport_chestplate` | 1 | 35,00 € |
+| Femme | `minenorth_vetements:legging_sport_leggings` | 1 | 45,00 € |
+
+## Boutique Lola
+
+| Rubrique | Objet | Lot | Prix |
+|---|---|---|---|
+| Hauts | `minenorth_vetements:crop_top_blanc_chestplate` | 1 | 25,00 € |
+| Hauts | `minenorth_vetements:crop_top_noir_chestplate` | 1 | 25,00 € |
+| Hauts | `minenorth_vetements:top_bretelles_chestplate` | 1 | 45,00 € |
+| Jupes & jeans | `minenorth_vetements:jupe_plissee_leggings` | 1 | 55,00 € |
+| Jupes & jeans | `minenorth_vetements:mini_jupe_cuir_leggings` | 1 | 95,00 € |
+| Jupes & jeans | `minenorth_vetements:jean_mom_leggings` | 1 | 70,00 € |
+
+## Grand Nord Outdoor
+
+| Rubrique | Objet | Lot | Prix |
+|---|---|---|---|
+| Parkas | `minenorth_vetements:parka_fourrure_kaki_chestplate` | 1 | 320,00 € |
+| Parkas | `minenorth_vetements:parka_fourrure_noire_chestplate` | 1 | 320,00 € |
+| Parkas | `minenorth_vetements:chapka_helmet` | 1 | 60,00 € |
+| Bottes d'hiver | `minenorth_vetements:apres_ski_boots` | 1 | 210,00 € |
+| Bottes d'hiver | `minenorth_vetements:bottes_fourrees_boots` | 1 | 180,00 € |
+
+## Pro Équipement
+
+| Rubrique | Objet | Lot | Prix |
+|---|---|---|---|
+| BTP | `minenorth_vetements:gilet_chantier_chestplate` | 1 | 35,00 € |
+| BTP | `minenorth_vetements:pantalon_travail_leggings` | 1 | 60,00 € |
+| BTP | `minenorth_vetements:casque_chantier_helmet` | 1 | 25,00 € |
+| BTP | `minenorth_vetements:casque_chantier_blanc_helmet` | 1 | 25,00 € |
+| BTP | `minenorth_vetements:chaussures_securite_boots` | 1 | 75,00 € |
+| Garage | `minenorth_vetements:veste_mecano_chestplate` | 1 | 55,00 € |
+| Garage | `minenorth_vetements:pantalon_mecano_leggings` | 1 | 50,00 € |
+| Cuisine | `minenorth_vetements:veste_cuisinier_chestplate` | 1 | 45,00 € |
+| Cuisine | `minenorth_vetements:pantalon_cuisinier_leggings` | 1 | 35,00 € |
+| Cuisine | `minenorth_vetements:toque_cuisinier_helmet` | 1 | 15,00 € |
+| Cuisine | `minenorth_vetements:sabots_cuisine_boots` | 1 | 40,00 € |
+| Cuisine | `minenorth_vetements:sabots_noirs_boots` | 1 | 40,00 € |
+| Salle | `minenorth_vetements:tenue_serveur_chestplate` | 1 | 60,00 € |
+| Salle | `minenorth_vetements:tablier_serveur_leggings` | 1 | 45,00 € |
+| Livraison | `minenorth_vetements:veste_livreur_chestplate` | 1 | 70,00 € |
+| Livraison | `minenorth_vetements:casquette_livreur_helmet` | 1 | 20,00 € |
 
 ## Chapellerie du Nord
 
@@ -200,6 +301,13 @@ Généré par `tools/gen_pack.py` (ne pas éditer à la main). Import et pose de
 | Sacs | `minenorth_vetements:banane_noire` | 1 | 40,00 € |
 | Sacs | `minenorth_vetements:banane_guchi` | 1 | 480,00 € |
 | Sacs | `minenorth_vetements:sacoche_noire` | 1 | 120,00 € |
+| Sacs | `minenorth_vetements:banane_nayk` | 1 | 45,00 € |
+| Sacs | `minenorth_vetements:sacoche_lacroste` | 1 | 140,00 € |
+| Sacs | `minenorth_vetements:sac_sport_noir` | 1 | 70,00 € |
+| Sacs | `minenorth_vetements:sac_sport_bleu` | 1 | 70,00 € |
+| Sacs | `minenorth_vetements:sac_rando_orange` | 1 | 110,00 € |
+| Sacs | `minenorth_vetements:sac_rando_vert` | 1 | 110,00 € |
+| Sacs | `minenorth_vetements:sac_luxe_vuiten` | 1 | 1900,00 € |
 | Gants & écharpes | `minenorth_vetements:gants_cuir_noir` | 1 | 75,00 € |
 | Gants & écharpes | `minenorth_vetements:gants_cuir_marron` | 1 | 75,00 € |
 | Gants & écharpes | `minenorth_vetements:gants_laine` | 1 | 25,00 € |
