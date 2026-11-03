@@ -56,6 +56,9 @@ BOUTIQUES = [
     ]),
 ]
 INTERDITS = {"uniform_pn_haut", "uniform_pn_bas", "brassard_pn", "helmet_berret_pn", "armor_jpc_v2_pn_gs", "mask_cold_fear"}
+INTERDITS |= {p + g for g in ("sous_officier", "officier", "commissaire")      # équipement PN par grade (03/11)
+              for p in ("brassard_pn_", "armor_jpc_v2_pn_", "helmet_pn_")}
+INTERDITS |= {"armor_jpc_v2_pn_raid", "helmet_pn_raid"}                       # RAID
 
 
 def ids_connus():
