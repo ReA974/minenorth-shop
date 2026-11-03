@@ -1,0 +1,1296 @@
+{
+  "_info": "Pack de boutiques MineNorth. Import : /shops importer boutiques-minenorth. Crée les boutiques absentes (par nom) et ajoute seulement les articles manquants aux boutiques existantes du même nom. Prix en centimes.",
+  "shops": [
+    {
+      "name": "Northside Streetwear",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:nayk_noir_helmet",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_noir_chestplate",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_noir_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_noir_boots",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_gris_chestplate",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_gris_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_gris_boots",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_rouge_helmet",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_rouge_chestplate",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_rouge_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:nayk_rouge_boots",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_bleu_chestplate",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_bleu_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_bleu_boots",
+          "quantity": 1,
+          "price": 8000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_noir_chestplate",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_noir_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:abidas_noir_boots",
+          "quantity": 1,
+          "price": 8000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_rouge_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_rouge_leggings",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_rouge_boots",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_blanc_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_blanc_leggings",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:pumba_blanc_boots",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Survêtements"
+        },
+        {
+          "item": "minenorth_vetements:supreem_rouge_helmet",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:supreem_rouge_chestplate",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:supreem_noir_helmet",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:supreem_noir_chestplate",
+          "quantity": 1,
+          "price": 16000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:jordane_rouge_chestplate",
+          "quantity": 1,
+          "price": 9000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:jordane_rouge_leggings",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:jordane_rouge_boots",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:champyon_gris_chestplate",
+          "quantity": 1,
+          "price": 7500,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:champyon_gris_leggings",
+          "quantity": 1,
+          "price": 5000,
+          "category": "Hype"
+        },
+        {
+          "item": "minenorth_vetements:levys_jean_chestplate",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Denim"
+        },
+        {
+          "item": "minenorth_vetements:levys_jean_leggings",
+          "quantity": 1,
+          "price": 8000,
+          "category": "Denim"
+        },
+        {
+          "item": "minenorth_vetements:levys_jean_boots",
+          "quantity": 1,
+          "price": 9000,
+          "category": "Denim"
+        },
+        {
+          "item": "minenorth_vetements:bomber_kaki_chestplate",
+          "quantity": 1,
+          "price": 13000,
+          "category": "Bombers"
+        },
+        {
+          "item": "minenorth_vetements:bomber_noir_chestplate",
+          "quantity": 1,
+          "price": 13000,
+          "category": "Bombers"
+        },
+        {
+          "item": "minenorth_vetements:bomber_marine_chestplate",
+          "quantity": 1,
+          "price": 13000,
+          "category": "Bombers"
+        }
+      ]
+    },
+    {
+      "name": "Urban Basics",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:sweat_gris_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Sweats"
+        },
+        {
+          "item": "minenorth_vetements:sweat_noir_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Sweats"
+        },
+        {
+          "item": "minenorth_vetements:sweat_beige_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Sweats"
+        },
+        {
+          "item": "minenorth_vetements:sweat_bordeaux_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Sweats"
+        },
+        {
+          "item": "minenorth_vetements:sweat_vert_chestplate",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Sweats"
+        },
+        {
+          "item": "minenorth_vetements:jogging_gris_leggings",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:jogging_noir_leggings",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:cargo_kaki_leggings",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:cargo_noir_leggings",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:cargo_beige_leggings",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:jean_brut_leggings",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Pantalons"
+        },
+        {
+          "item": "minenorth_vetements:jean_noir_leggings",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Pantalons"
+        }
+      ]
+    },
+    {
+      "name": "Maison Aurèle",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:guchi_vert_helmet",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:guchi_vert_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:guchi_vert_boots",
+          "quantity": 1,
+          "price": 55000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:louis_vuiten_chestplate",
+          "quantity": 1,
+          "price": 90000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:louis_vuiten_leggings",
+          "quantity": 1,
+          "price": 65000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:louis_vuiten_boots",
+          "quantity": 1,
+          "price": 75000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:lacroste_vert_chestplate",
+          "quantity": 1,
+          "price": 11000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:lacroste_vert_leggings",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:lacroste_blanc_chestplate",
+          "quantity": 1,
+          "price": 11000,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:lacroste_blanc_leggings",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Griffé"
+        },
+        {
+          "item": "minenorth_vetements:nord_fasse_helmet",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:nord_fasse_chestplate",
+          "quantity": 1,
+          "price": 28000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:nord_fasse_leggings",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:doudoune_noire_chestplate",
+          "quantity": 1,
+          "price": 95000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:doudoune_rouge_chestplate",
+          "quantity": 1,
+          "price": 95000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:doudoune_marine_chestplate",
+          "quantity": 1,
+          "price": 95000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:doudoune_creme_chestplate",
+          "quantity": 1,
+          "price": 95000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:doudoune_kaki_chestplate",
+          "quantity": 1,
+          "price": 95000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:gilet_noir_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:gilet_bordeaux_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Doudounes"
+        },
+        {
+          "item": "minenorth_vetements:perfecto_noir_chestplate",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:perfecto_marron_chestplate",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:manteau_camel_chestplate",
+          "quantity": 1,
+          "price": 42000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:manteau_noir_chestplate",
+          "quantity": 1,
+          "price": 42000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:manteau_gris_chestplate",
+          "quantity": 1,
+          "price": 42000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:trench_beige_chestplate",
+          "quantity": 1,
+          "price": 39000,
+          "category": "Manteaux"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_guchi_helmet",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Cagoules griffées"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_guchi_noire_helmet",
+          "quantity": 1,
+          "price": 42000,
+          "category": "Cagoules griffées"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_vuiten_helmet",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Cagoules griffées"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_supreem_helmet",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Cagoules griffées"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_nayk_helmet",
+          "quantity": 1,
+          "price": 9000,
+          "category": "Cagoules griffées"
+        }
+      ]
+    },
+    {
+      "name": "Atelier Valmont",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:costard_noir_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_noir_leggings",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_noir_boots",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_marine_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_marine_leggings",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_marine_boots",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_gris_chestplate",
+          "quantity": 1,
+          "price": 38000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_gris_leggings",
+          "quantity": 1,
+          "price": 18000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_gris_boots",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_blanc_chestplate",
+          "quantity": 1,
+          "price": 42000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_blanc_leggings",
+          "quantity": 1,
+          "price": 20000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_blanc_boots",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_noir_pin_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_marine_pin_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:costard_gris_pin_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:smoking_chestplate",
+          "quantity": 1,
+          "price": 52000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:smoking_leggings",
+          "quantity": 1,
+          "price": 24000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:smoking_boots",
+          "quantity": 1,
+          "price": 26000,
+          "category": "Costumes"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_rouge_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_rouge_leggings",
+          "quantity": 1,
+          "price": 15000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_rouge_boots",
+          "quantity": 1,
+          "price": 24000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_noire_chestplate",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_noire_leggings",
+          "quantity": 1,
+          "price": 15000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_soiree_noire_boots",
+          "quantity": 1,
+          "price": 24000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_cocktail_chestplate",
+          "quantity": 1,
+          "price": 32000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_cocktail_leggings",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Soirée"
+        },
+        {
+          "item": "minenorth_vetements:robe_cocktail_boots",
+          "quantity": 1,
+          "price": 20000,
+          "category": "Soirée"
+        }
+      ]
+    },
+    {
+      "name": "Riviera Plage",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:robe_ete_chestplate",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Été"
+        },
+        {
+          "item": "minenorth_vetements:robe_ete_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Été"
+        },
+        {
+          "item": "minenorth_vetements:bikini_rouge_chestplate",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:bikini_rouge_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:bikini_turquoise_chestplate",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:bikini_turquoise_leggings",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:bikini_noir_chestplate",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:bikini_noir_leggings",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:maillot_bleu_leggings",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Bain"
+        },
+        {
+          "item": "minenorth_vetements:maillot_tropical_leggings",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Bain"
+        }
+      ]
+    },
+    {
+      "name": "Chapellerie du Nord",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:haut_de_forme_noir_helmet",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:haut_de_forme_blanc_helmet",
+          "quantity": 1,
+          "price": 16000,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:chapeau_melon_helmet",
+          "quantity": 1,
+          "price": 9000,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:fedora_gris_helmet",
+          "quantity": 1,
+          "price": 7500,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:fedora_marron_helmet",
+          "quantity": 1,
+          "price": 7500,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:panama_helmet",
+          "quantity": 1,
+          "price": 7000,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:chapeau_cowboy_helmet",
+          "quantity": 1,
+          "price": 6500,
+          "category": "Chapeaux"
+        },
+        {
+          "item": "minenorth_vetements:casquette_noire_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_blanche_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_rouge_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_marine_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_beige_helmet",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_inverse_noire_helmet",
+          "quantity": 1,
+          "price": 2800,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_inverse_rouge_helmet",
+          "quantity": 1,
+          "price": 2800,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_inverse_marine_helmet",
+          "quantity": 1,
+          "price": 2800,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_inverse_blanche_helmet",
+          "quantity": 1,
+          "price": 2800,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:casquette_inverse_kaki_helmet",
+          "quantity": 1,
+          "price": 2800,
+          "category": "Casquettes"
+        },
+        {
+          "item": "minenorth_vetements:bonnet_noir_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bonnet_gris_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bonnet_rouge_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bonnet_moutarde_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bonnet_marine_helmet",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bob_noir_helmet",
+          "quantity": 1,
+          "price": 2200,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bob_beige_helmet",
+          "quantity": 1,
+          "price": 2200,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bob_blanc_helmet",
+          "quantity": 1,
+          "price": 2200,
+          "category": "Bonnets & bobs"
+        },
+        {
+          "item": "minenorth_vetements:bob_kaki_helmet",
+          "quantity": 1,
+          "price": 2200,
+          "category": "Bonnets & bobs"
+        }
+      ]
+    },
+    {
+      "name": "Comptoir Accessoires",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorth_vetements:lunettes_aviator_helmet",
+          "quantity": 1,
+          "price": 14000,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:lunettes_wayfarer_helmet",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:lunettes_sport_helmet",
+          "quantity": 1,
+          "price": 8500,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:lunettes_rose_helmet",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:lunettes_rondes",
+          "quantity": 1,
+          "price": 9500,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:lunettes_masque",
+          "quantity": 1,
+          "price": 8000,
+          "category": "Lunettes"
+        },
+        {
+          "item": "minenorth_vetements:chaine_or",
+          "quantity": 1,
+          "price": 150000,
+          "category": "Bijoux"
+        },
+        {
+          "item": "minenorth_vetements:chaine_argent",
+          "quantity": 1,
+          "price": 45000,
+          "category": "Bijoux"
+        },
+        {
+          "item": "minenorth_vetements:chaine_croix",
+          "quantity": 1,
+          "price": 65000,
+          "category": "Bijoux"
+        },
+        {
+          "item": "minenorth_vetements:collier_perles",
+          "quantity": 1,
+          "price": 80000,
+          "category": "Bijoux"
+        },
+        {
+          "item": "minenorth_vetements:montre_or",
+          "quantity": 1,
+          "price": 450000,
+          "category": "Montres"
+        },
+        {
+          "item": "minenorth_vetements:montre_argent",
+          "quantity": 1,
+          "price": 180000,
+          "category": "Montres"
+        },
+        {
+          "item": "minenorth_vetements:montre_sport",
+          "quantity": 1,
+          "price": 22000,
+          "category": "Montres"
+        },
+        {
+          "item": "minenorth_vetements:gourmette_or",
+          "quantity": 1,
+          "price": 90000,
+          "category": "Montres"
+        },
+        {
+          "item": "minenorth_vetements:sac_dos_noir",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_dos_rouge",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sac_dos_kaki",
+          "quantity": 1,
+          "price": 6000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:banane_noire",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:banane_guchi",
+          "quantity": 1,
+          "price": 48000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:sacoche_noire",
+          "quantity": 1,
+          "price": 12000,
+          "category": "Sacs"
+        },
+        {
+          "item": "minenorth_vetements:gants_cuir_noir",
+          "quantity": 1,
+          "price": 7500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:gants_cuir_marron",
+          "quantity": 1,
+          "price": 7500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:gants_laine",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:echarpe_grise_helmet",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:echarpe_rouge_helmet",
+          "quantity": 1,
+          "price": 5500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:echarpe_noire",
+          "quantity": 1,
+          "price": 3500,
+          "category": "Gants & écharpes"
+        },
+        {
+          "item": "minenorth_vetements:bandana_rouge_helmet",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Visage"
+        },
+        {
+          "item": "minenorth_vetements:bandana_noir_helmet",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Visage"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_noire_helmet",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Visage"
+        },
+        {
+          "item": "minenorth_vetements:cagoule_kaki_helmet",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Visage"
+        }
+      ]
+    },
+    {
+      "name": "Animalerie Patte d'Or",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "entries": [
+        {
+          "item": "minenorthpets:croquettes_chien",
+          "quantity": 1,
+          "price": 1200,
+          "category": "Croquettes"
+        },
+        {
+          "item": "minenorthpets:croquettes_chat",
+          "quantity": 1,
+          "price": 1200,
+          "category": "Croquettes"
+        },
+        {
+          "item": "minenorthpets:granules_rongeur",
+          "quantity": 1,
+          "price": 800,
+          "category": "Croquettes"
+        },
+        {
+          "item": "minenorthpets:nourriture_reptile",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Croquettes"
+        },
+        {
+          "item": "minenorthpets:graines_perroquet",
+          "quantity": 1,
+          "price": 800,
+          "category": "Croquettes"
+        },
+        {
+          "item": "minenorthpets:bandana_rouge",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:bandana_bleu",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:noeud_papillon",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:collier_strass",
+          "quantity": 1,
+          "price": 4500,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:manteau_animal",
+          "quantity": 1,
+          "price": 4000,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:gilet_neon",
+          "quantity": 1,
+          "price": 3000,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:chapeau_animal",
+          "quantity": 1,
+          "price": 2500,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:casquette_animal",
+          "quantity": 1,
+          "price": 2000,
+          "category": "Accessoires"
+        },
+        {
+          "item": "minenorthpets:collier_identification",
+          "quantity": 1,
+          "price": 5000,
+          "category": "Identification"
+        }
+      ]
+    },
+    {
+      "name": "Vendeur outils drogue",
+      "mode": "SELL",
+      "allowCash": true,
+      "allowCard": true,
+      "illegal": true,
+      "entries": [
+        {
+          "item": "minenorthdrogue:cannabis_seeds",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Graines"
+        },
+        {
+          "item": "minenorthdrogue:coca_seeds",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Graines"
+        },
+        {
+          "item": "minenorthdrogue:ephedra_seeds",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Graines"
+        },
+        {
+          "item": "minenorthdrogue:poppy_seeds",
+          "quantity": 1,
+          "price": 1500,
+          "category": "Graines"
+        },
+        {
+          "item": "minenorthdrogue:grow_tent_small",
+          "quantity": 1,
+          "price": 50000,
+          "category": "Culture"
+        },
+        {
+          "item": "minenorthdrogue:grow_tent_long",
+          "quantity": 1,
+          "price": 90000,
+          "category": "Culture"
+        },
+        {
+          "item": "minenorthdrogue:uv_lamp",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Culture"
+        },
+        {
+          "item": "minenorthdrogue:watering_can",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Culture"
+        },
+        {
+          "item": "minenorthdrogue:potting_soil",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Culture"
+        },
+        {
+          "item": "minenorthdrogue:chemical",
+          "quantity": 1,
+          "price": 1000,
+          "category": "Labo"
+        },
+        {
+          "item": "minenorthdrogue:lab",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Labo"
+        },
+        {
+          "item": "minenorthdrogue:cooking_oven",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Labo"
+        },
+        {
+          "item": "minenorthdrogue:pack_table",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Labo"
+        },
+        {
+          "item": "minenorthdrogue:roll_table",
+          "quantity": 1,
+          "price": 10000,
+          "category": "Labo"
+        },
+        {
+          "item": "minenorthdrogue:empty_bag",
+          "quantity": 64,
+          "price": 1000,
+          "category": "Labo"
+        }
+      ]
+    }
+  ]
+}

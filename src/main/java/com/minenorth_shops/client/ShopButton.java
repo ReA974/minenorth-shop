@@ -4,12 +4,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-/** Bouton plat, même style que les écrans MineNorth Bank. */
+/** Bouton plat aux coins arrondis (charte MineNorth). Un libellé trop long est réduit, puis coupé avec le texte complet en infobulle. */
 @OnlyIn(Dist.CLIENT)
 public class ShopButton extends AbstractButton {
     public static final int CYAN = 0xFF20AAEB;
@@ -26,6 +27,8 @@ public class ShopButton extends AbstractButton {
         super(x, y, w, h, label);
         this.color = color;
         this.action = action;
+        Font font = Minecraft.getInstance().font;
+        if (color != GHOST && font.width(label) * 0.75f > w - 6) setTooltip(Tooltip.create(label));
     }
 
     public ShopButton sides(Component left, Component right) {
@@ -72,13 +75,13 @@ public class ShopButton extends AbstractButton {
         }
 
         int bg = !active ? 0xFF2A2468 : hov ? lighten(color) : color;
-        g.fill(x, y, x + width, y + height, bg);
+        MineNorthStyle.rfill(g, x, y, x + width, y + height, height >= 16 ? 5 : 3, bg);
         int tc = active ? 0xFFFFFFFF : 0xFF8FA8E0;
         if (leftText != null) {
             g.drawString(font, leftText, x + 14, ty, tc, false);
             g.drawString(font, rightText, x + width - 14 - font.width(rightText), ty, tc, false);
         } else {
-            g.drawCenteredString(font, getMessage(), x + width / 2, ty, tc);
+            MineNorthStyle.centered(g, font, getMessage().getString(), x + width / 2, y + height / 2, width - 6, tc);
         }
     }
 }

@@ -9,7 +9,7 @@ version = mod_version
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = 'minenorth-shops'   // nom de jar en tiret (minenorth-xxx)
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -136,6 +136,9 @@ dependencies {
     // MineNorth EuroBank : copier le jar construit (build/libs/minenorth_eurobank-1.0.0.jar) dans ./libs
     // fg.deobf remappe le jar (compilé en noms SRG) vers les noms de développement.
     implementation fg.deobf("blank:minenorth_eurobank:${eurobank_version}")
+    // MRPhone 2 : libs/mrphone-0.9.4.jar (copie de « MRPhone 2 0.9.4 beta.jar », non redistribuée), seulement pour compiler client/phone
+    // (application Boutiques, chargée seulement si le téléphone est là)
+    compileOnly fg.deobf("blank:mrphone:0.9.4")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

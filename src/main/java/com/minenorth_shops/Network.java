@@ -21,7 +21,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class Network {
-    private static final String PROTOCOL = "5";   // 5 : boutiques pompiers + illégales (4 : rubriques des articles, 3 : boutiques réservées à la police)
+    private static final String PROTOCOL = "6";   // 6 : application Boutiques du téléphone ; 5 : boutiques pompiers + illégales (4 : rubriques des articles, 3 : boutiques réservées à la police)
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(MineNorthShops.MODID, "main"), () -> PROTOCOL, PROTOCOL::equals, PROTOCOL::equals);
 
@@ -39,6 +39,13 @@ public final class Network {
         CHANNEL.registerMessage(id++, ShopActionPacket.class, ShopActionPacket::encode, ShopActionPacket::decode, ShopActionPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER));
         CHANNEL.registerMessage(id++, AdminSyncPacket.class, AdminSyncPacket::encode, AdminSyncPacket::decode, AdminSyncPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_CLIENT));
         CHANNEL.registerMessage(id++, AdminEditPacket.class, AdminEditPacket::encode, AdminEditPacket::decode, AdminEditPacket::handle, java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER));
+        // Application « Boutiques » du téléphone (annuaire, consultation seulement).
+        CHANNEL.registerMessage(id++, com.minenorth_shops.packet.PhoneShopsPacket.Request.class, com.minenorth_shops.packet.PhoneShopsPacket.Request::encode,
+                com.minenorth_shops.packet.PhoneShopsPacket.Request::decode, com.minenorth_shops.packet.PhoneShopsPacket.Request::handle,
+                java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER));
+        CHANNEL.registerMessage(id++, com.minenorth_shops.packet.PhoneShopsPacket.Listing.class, com.minenorth_shops.packet.PhoneShopsPacket.Listing::encode,
+                com.minenorth_shops.packet.PhoneShopsPacket.Listing::decode, com.minenorth_shops.packet.PhoneShopsPacket.Listing::handle,
+                java.util.Optional.of(net.minecraftforge.network.NetworkDirection.PLAY_TO_CLIENT));
     }
 
     // ---------- boutique côté joueur ----------
@@ -108,6 +115,7 @@ public final class Network {
     }
 
     public static void forget(UUID id) {
+        PhoneDirectory.forget(id);
         SESSIONS.remove(id);
         WATCH_ADMIN.remove(id);
     }

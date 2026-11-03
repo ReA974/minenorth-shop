@@ -9,8 +9,17 @@ en **vente** ou en **rachat**, assignables à **n'importe quelle entité**. Paie
 1. Compiler EuroBank (`./gradlew build` dans `systemebanqueminenorth`).
 2. Copier `build/libs/minenorth_eurobank-1.0.0.jar` dans `libs/` de ce projet.
    (Autre version : changer `eurobank_version` dans `gradle.properties`.)
-3. `./gradlew build` → `build/libs/minenorth_shops-1.1.0.jar`.
+3. `./gradlew build` (JDK 17 : `JAVA_HOME=~/.jdks/ms-17.0.20.1`, Gradle échoue sous Java 27) → `build/libs/minenorth-shops-1.1.0.jar`
+   (nom en tiret : supprimer un ancien `minenorth_shops-…jar`).
 4. Sur le serveur : mettre les **deux** jars dans `mods/` (côté client aussi, il y a des écrans).
+
+## Écran de boutique (joueurs)
+
+Charte MineNorth (fond bleu nuit, blocs et boutons arrondis), taille adaptée à la fenêtre (utilisable en échelle d'interface 3 et 4).
+- Les noms longs passent sur deux ou trois lignes (réduits si besoin), sinon coupés avec « .. » et le nom complet en infobulle.
+- **Vitrine 3D** de l'article choisi, qui tourne (glisser à la souris pour la faire tourner) : un vêtement (pièce d'armure, chapeau,
+  ou accessoire du mod `minenorth-vetements`) est **porté par votre propre personnage**, rien n'est équipé pour de vrai ;
+  les autres objets (armes...) sont affichés en grand.
 
 ## Utilisation (admins / op niveau 2)
 
@@ -87,9 +96,119 @@ repoussé jusqu'à ce qu'il parte.
 - Réglages par boutique : `minutes` (0 = config) et `distance` (-1 = config, 0 = jamais repoussé), aussi dans `shops.json`
   (`illegalMinutes`, `illegalRadius`).
 
+### Boutiques prêtes à l'emploi (packs)
+
+Le mod fournit le pack **`boutiques-minenorth`** : 9 boutiques remplies (magasins de vêtements par enseigne fictive, accessoires,
+animalerie, et compléments pour la boutique clandestine de drogue). Catalogue complet (ids et prix) : [BOUTIQUES.md](BOUTIQUES.md).
+
+| # | Boutique | Contenu | Prix |
+|---|---|---|---|
+| 1 | Northside Streetwear | survêtements de marque, hype (box logo, rétro), denim, bombers | 30 – 180 € |
+| 2 | Urban Basics | sweats à capuche, joggings, cargos, jeans | 40 – 65 € |
+| 3 | Maison Aurèle | luxe : pièces griffées, doudounes, manteaux, perfectos, cagoules griffées | 60 – 950 € |
+| 4 | Atelier Valmont | costumes, smoking, robes de soirée et cocktail | 120 – 520 € |
+| 5 | Riviera Plage | robe d'été, bikinis, shorts de bain | 30 – 85 € |
+| 6 | Chapellerie du Nord | chapeaux, casquettes, bonnets, bobs | 20 – 160 € |
+| 7 | Comptoir Accessoires | lunettes, bijoux, montres, sacs, gants, écharpes, bandanas, cagoules | 15 – 4 500 € |
+| 8 | Animalerie Patte d'Or | croquettes (5 sortes), 8 accessoires d'animaux, collier d'identification | 8 – 50 € |
+| 9 | Vendeur outils drogue | graines (cannabis, coca, éphédra, **pavot**), tentes, lampe UV, labo, tables, sachets | **illégale** |
+
+Tous les objets du mod `minenorth-vetements` sont vendus quelque part (vérifié par le script). Le n° réel de chaque boutique est donné
+par l'import (ils suivent les boutiques déjà présentes sur le serveur).
+
+**Importer** (op niveau 2) : `/shops importer boutiques-minenorth` (`/shops importer` seul liste les packs).
+- Une boutique **absente** (comparée par nom) est créée avec ses réglages et ses articles.
+- Une boutique **du même nom déjà présente** reçoit seulement les articles qui lui manquent : ses prix, réglages et articles ne changent pas.
+  Ex. sur le serveur, la boutique clandestine « Vendeur outils drogue » (#21) reçoit les graines de pavot, la grande tente et la table à rouler.
+- Relancer l'import ne crée pas de doublon. Un objet d'un mod absent est ignoré (compté dans le message, détaillé dans les logs).
+- Les packs sont dans `config/minenorth_shops/packs/` : le pack fourni y est copié s'il n'y est pas (jamais écrasé). Un pack se modifie
+  à la main (même format que `shops.json`, prix en centimes, `id` inutile) ou se régénère : `python tools/gen_pack.py` (vérifie les ids
+  dans les fichiers de langue des mods, réécrit le pack et `BOUTIQUES.md`).
+
+**Poser un vendeur** (pour chaque boutique, au bon endroit) :
+1. Faire apparaître un PNJ, par ex. `/summon villager ~ ~ ~ {VillagerData:{profession:"minecraft:nitwit"},CustomName:'"Maison Aurèle"'}`
+   (ou n'importe quelle entité : armor stand, PNJ d'un autre mod…).
+2. `/shops linker <n°>` puis clic droit sur le PNJ (ou `/shops assign @e[type=villager,limit=1,sort=nearest] <n°>`).
+   Il devient invulnérable et immobile ; accroupi + clic droit avec l'outil le libère.
+3. Boutique illégale : lier **deux** entités à deux endroits (une seule est présente à la fois, voir plus haut).
+4. Vérifier : `/shops info @e[type=villager,limit=1,sort=nearest]`, puis clic droit en joueur.
+
+### Pack `poissonnerie` : rachat des poissons Starcatcher
+
+Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minenorth_shops/packs/poissonnerie.json`. Il rachète les
+**114 poissons** du mod de pêche **Starcatcher** (`starcatcher:*`), un prix par poisson selon sa rareté, versé **sur le compte bancaire**
+(pas d'espèces). Une boutique a au plus 54 articles, d'où **trois comptoirs** à poser côte à côte :
+
+| Boutique | Rubriques | Prix par poisson |
+|---|---|---|
+| Poissonnerie - Courants | Commun (27) · Peu commun (26) | 15 € · 25 € |
+| Poissonnerie - Rares | Rare (23) · Épique (23) | 45 € · 80 € |
+| Poissonnerie - Légendaires | Légendaire (15) | 180 € |
+
+- Non rachetés : les déchets de pêche (bottes, algues séchées, coquillages, pince de crabe), les trophées, les modèles de forge.
+- Taille et poisson **doré** : Starcatcher les note sur l'objet, mais la boutique ne compare pas les données d'un article sans NBT,
+  donc **tout poisson d'une espèce est payé au même prix** (pas de bonus). Pas de limite par jour non plus (`limites.lotsMax` seulement).
+- Changer les prix : modifier `PRIX` dans `tools/gen_poissonnerie.py` puis `python -I tools/gen_poissonnerie.py` (lit les fiches de poissons
+  dans le jar Starcatcher), **avant** l'import. Après l'import, les prix se changent dans le panneau `/shops` (un nouvel import n'écrase pas).
+- Installer : `/shops importer poissonnerie`, puis lier un PNJ à chacune des trois boutiques (voir « Poser un vendeur »).
+- Icône sur la carte (`minenorth_map`) : créer le point de la carte avec un nom contenant « Rachat de poisson » ou « Acheteur de poisson »
+  → pastille dorée d'acheteur avec le poisson (`rachat_poisson`).
+
+### Pack `musique` : magasin d'instruments « La Note Bleue »
+
+Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minenorth_shops/packs/musique.json`. Une boutique qui **vend**
+les objets du mod `minenorth-musique` (espèces ou carte), 19 articles :
+
+| Rubrique | Articles | Prix |
+|---|---|---|
+| Guitares | électrique sunburst, noire, rouge, bleue, blanche · Flying V métal · acoustique · classique | 220 – 650 € |
+| Basses & claviers | basse électrique · piano numérique · synthétiseur | 420 – 900 € |
+| Cordes & vents | violon · saxophone | 380 – 600 € |
+| Batterie | batterie (bloc) · baguettes | 25 – 1 200 € |
+| Scène & son | micro · enceinte portable · jukebox | 90 – 1 500 € |
+| Vinyles | disque vinyle | 15 € |
+
+- La **guitare Or (VIP)** n'est pas vendue : elle est réservée aux grades VIP et retirée aux autres joueurs.
+- Changer les prix ou les articles : modifier `RAYONS` dans `tools/gen_musique.py` puis `python -I tools/gen_musique.py` (vérifie les ids
+  dans `MusiqueItems.java`), **avant** l'import.
+- Installer : `/shops importer musique`, puis lier un PNJ à la boutique (voir « Poser un vendeur »).
+
+### Pack `surplus_noir` : vendeur illégal de tenues tactiques (ZeroContact)
+
+Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minenorth_shops/packs/surplus_noir.json`. Deux boutiques
+**illégales**, **espèces seulement**, qui vendent les tenues et l'équipement du mod `zerocontact` (une boutique a au plus 54 articles) :
+
+| Boutique | Rubriques | Prix |
+|---|---|---|
+| Surplus Noir - Tenues (49) | Uniformes (14) · Gilets pare-balles (18, prix selon la classe de protection) · Casques & cagoules (17) | 60 – 2 800 € |
+| Surplus Noir - Équipement (46) | Plaques balistiques · Masques à gaz · Porte-chargeurs · Sacs à dos · Casques radio · Vision nocturne · Brassards · Accessoires (kit de réparation, radios, piles…) | 20 – 4 500 € |
+
+- **Pas de matériel de la Police Nationale** (uniforme, brassard, béret, JPC PN, masque tactique PN) : le script refuse ces ids.
+  Ni munitions, ni plaque d'identité, ni œuf de raider.
+- Changer les prix ou les articles : modifier `BOUTIQUES` dans `tools/gen_surplus.py` puis `python -I tools/gen_surplus.py` (vérifie les ids
+  dans les sources de `ZeroContact_MineNorthRP`), **avant** l'import.
+- Installer : `/shops importer surplus_noir`, puis lier **deux** entités à chaque boutique (deux planques, une seule présente à la fois,
+  voir « Boutiques illégales »). Les deux boutiques peuvent partager les mêmes planques avec deux PNJ côte à côte.
+
+### Pack `clandestin` : production de drogue et outils de vol
+
+Pack **séparé** (fichier de config seulement) : `config/minenorth_shops/packs/clandestin.json`. Deux boutiques **illégales** :
+
+| Boutique | Rubriques | Paiement |
+|---|---|---|
+| Vendeur outils drogue (30) | Graines (cannabis, coca, éphédra, pavot, spores) · Ingrédients (produit chimique, huile de sassafras, ergot, sachets) · Culture (tentes, terreau, engrais, lampes UV/LED, arrosoir, goutte-à-goutte) · Labo (labo, four, séchoir, tables, presse à pilules, extracteur, filtre à charbon) · Coupe (table de coupe, bicarbonate, paracétamol, caféine) · Santé (naloxone) | espèces ou carte |
+| Le Fourgue (15) | Voitures (tournevis, crochets, kit, outil électronique, fausses plaques) · Maisons (crochet de porte) · Radars (pirate de radar) · Banque (perceuses niv. 1-3, outil hacker) · Discrétion (cagoules, bandana, gants) | espèces seulement |
+
+- « Vendeur outils drogue » porte le **même nom** que la boutique clandestine du serveur (#21) : l'import lui ajoute seulement les articles
+  qui lui manquent (ses prix et réglages ne changent pas). Les drogues finies ne sont pas vendues : il faut les produire.
+- Changer les prix ou les articles : modifier `BOUTIQUES` dans `tools/gen_clandestin.py` puis `python -I tools/gen_clandestin.py` (vérifie les
+  ids dans les sources des mods drogue, vol, portes, police, eurobank et vêtements), **avant** l'import.
+- Installer : `/shops importer clandestin`, puis lier **deux** entités au Fourgue (deux planques, voir « Boutiques illégales »).
+
 ### Autres commandes
 
 - `/shops list` — liste des boutiques.
+- `/shops importer [pack]` — importe un pack de boutiques prêtes à l'emploi (voir ci-dessus).
 - `/shops edit <id>` — ouvre l'édition.
 - `/shops licence <id> <licence|aucune>` — licence exigée pour commercer.
 - `/shops police <id> <tous|policier|officier|commissaire>` — boutique réservée à la police.
@@ -106,6 +225,13 @@ infobulle), choix du nombre de lots (− / + / Max), puis **Payer en espèces** 
 
 Règles de paiement (celles de l'API EuroBank) : par carte, il faut un compte, **sa propre carte** dans l'inventaire et un
 solde suffisant. En rachat, les outils abîmés ne sont pas repris ; si l'article a du NBT, l'objet doit être identique.
+
+## Application « Boutiques » du téléphone MRPhone (02/11)
+Icône framboise **Boutiques** du téléphone patché (`minenorth-phone`, `JobsHook`, constante `BOUTIQUES`), visible pour tous : annuaire des boutiques **dans l'écran du téléphone** (`client/phone/PhoneShopsScreen`, compilé contre `libs/mrphone-0.9.4.jar` en `compileOnly`).
+- Onglets **Magasins** (vente) / **Rachat** ; recherche par nom de boutique ou d'article ; catalogue (icône, nom, lot, prix, rubriques), moyens de paiement, licence / accès réservé, distance du vendeur et bouton **Itinéraire sur la carte** (repère + guidage du mod `minenorth_map`, par réflexion).
+- **Consultation seulement** : on achète / vend toujours sur place, auprès du vendeur. Jamais les boutiques **illégales**, ni celles réservées à un métier que le joueur n'a pas (mêmes règles `PompierCompat` / `PoliceCompat` / `AccessCompat`).
+- Serveur : `PhoneDirectory` (anti-martelage 0,5 s ; emplacement = premier vendeur lié parmi les entités chargées, sinon « emplacement inconnu »). Paquets `PhoneShopsPacket.Request` / `Listing` ; **protocole réseau 5 → 6** (jar à mettre à jour serveur ET clients).
+- **Non testé en jeu.**
 
 ## Configuration
 
@@ -172,3 +298,5 @@ Une boutique peut être réservée aux policiers enregistrés (`/police grade`),
 **Tous droits réservés - MineNorthRP.** Réutilisation, copie, modification, décompilation / ingénierie
 inverse (y compris par outils d'intelligence artificielle) et utilisation pour entraîner une IA sont
 **interdites** sans autorisation écrite. Voir [LICENSE](LICENSE).
+
+Annuaire du téléphone (02/11, suite) : les **boutiques d'entreprise** (`companyId` ≠ 0 ou entreprise nommée) n'y sont plus, même pour leurs membres : gérées par les joueurs, elles restent hors de l'annuaire public (comme le marché noir).

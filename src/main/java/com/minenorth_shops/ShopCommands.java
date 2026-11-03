@@ -37,6 +37,7 @@ import java.util.Collection;
  * /shops pompier <id> <on|off>         boutique réservée aux pompiers / secours
  * /shops illegal <id> <on|off> [minutes] [distance]  boutique illégale : 2 entités, une seule présente à la fois
  * /shops illegal <id> statut | basculer
+ * /shops importer [pack]               boutiques prêtes à l'emploi (config/minenorth_shops/packs) : crée les absentes, complète les autres
  */
 public final class ShopCommands {
     private ShopCommands() {}
@@ -55,6 +56,10 @@ public final class ShopCommands {
         d.register(Commands.literal("shops").requires(s -> s.hasPermission(2))
                 .executes(c -> openAdmin(c, -1))
                 .then(Commands.literal("list").executes(ShopCommands::list))
+                .then(Commands.literal("importer").executes(ShopCommands::packs)
+                        .then(Commands.argument("pack", StringArgumentType.string())
+                                .suggests((ctx, b) -> SharedSuggestionProvider.suggest(com.minenorth_shops.shop.ShopPacks.list(), b))
+                                .executes(ShopCommands::importPack)))
                 .then(Commands.literal("edit")
                         .then(Commands.argument("id", IntegerArgumentType.integer(1)).suggests(SHOP_IDS)
                                 .executes(c -> openAdmin(c, IntegerArgumentType.getInteger(c, "id")))))
@@ -248,6 +253,32 @@ public final class ShopCommands {
     private static int openAdmin(CommandContext<CommandSourceStack> c, int focus) throws CommandSyntaxException {
         Network.openAdmin(c.getSource().getPlayerOrException(), focus, "");
         return 1;
+    }
+
+    private static int packs(CommandContext<CommandSourceStack> c) {
+        java.util.List<String> l = com.minenorth_shops.shop.ShopPacks.list();
+        c.getSource().sendSystemMessage(Component.literal(l.isEmpty() ? "Aucun pack dans config/minenorth_shops/packs."
+                : "Packs disponibles : " + String.join(", ", l) + "\nImporter : /shops importer <pack> (crée les boutiques absentes, "
+                + "ajoute seulement les articles manquants aux boutiques du même nom)."));
+        return l.size();
+    }
+
+    private static int importPack(CommandContext<CommandSourceStack> c) {
+        String name = StringArgumentType.getString(c, "pack");
+        try {
+            var r = com.minenorth_shops.shop.ShopPacks.importPack(ShopData.get(c.getSource().getServer()), name);
+            StringBuilder b = new StringBuilder("Pack « " + name + " » importé : " + r.added() + " article(s) ajouté(s).");
+            if (!r.created().isEmpty()) b.append("\n Créées : ").append(String.join(", ", r.created()));
+            if (!r.completed().isEmpty()) b.append("\n Complétées : ").append(String.join(", ", r.completed()));
+            if (r.unknown() > 0) b.append("\n ").append(r.unknown()).append(" objet(s) inconnu(s) ignoré(s) (mod absent ?), voir les logs.");
+            if (r.full() > 0) b.append("\n ").append(r.full()).append(" article(s) non ajouté(s) : boutique pleine (").append(Shop.MAX_ENTRIES).append(" max).");
+            b.append("\n Placez-les avec /shops linker <id> (clic droit sur un PNJ).");
+            c.getSource().sendSuccess(() -> Component.literal(b.toString()), true);
+            return r.added();
+        } catch (java.io.IOException e) {
+            c.getSource().sendFailure(Component.literal("Import impossible : " + e.getMessage()));
+            return 0;
+        }
     }
 
     private static int list(CommandContext<CommandSourceStack> c) {
