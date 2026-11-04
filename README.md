@@ -150,6 +150,8 @@ par l'import (ils suivent les boutiques déjà présentes sur le serveur).
 
 ### Pack `poissonnerie` : rachat des poissons Starcatcher
 
+Les poissons viennent de la canne Star Catcher ou du **filet de pêche des bateaux** (mod garage : même table de pêche, mêmes objets).
+
 Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minenorth_shops/packs/poissonnerie.json`. Il rachète les
 **114 poissons** du mod de pêche **Starcatcher** (`starcatcher:*`), un prix par poisson selon sa rareté, versé **sur le compte bancaire**
 (pas d'espèces). Une boutique a au plus 54 articles, d'où **trois comptoirs** à poser côte à côte :
@@ -159,13 +161,14 @@ Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minen
 | Poissonnerie - Courants | Commun (27) · Peu commun (26) | 15 € · 25 € |
 | Poissonnerie - Rares | Rare (23) · Épique (23) | 45 € · 80 € |
 | Poissonnerie - Légendaires | Légendaire (15) | 180 € |
+| Poissonnerie - Matériel de pêche (vente) | Filet de pêche des bateaux (`minenorth_rp_vehicles:filet_peche`, mod garage) | 350 € |
 
 - Non rachetés : les déchets de pêche (bottes, algues séchées, coquillages, pince de crabe), les trophées, les modèles de forge.
 - Taille et poisson **doré** : Starcatcher les note sur l'objet, mais la boutique ne compare pas les données d'un article sans NBT,
   donc **tout poisson d'une espèce est payé au même prix** (pas de bonus). Pas de limite par jour non plus (`limites.lotsMax` seulement).
 - Changer les prix : modifier `PRIX` dans `tools/gen_poissonnerie.py` puis `python -I tools/gen_poissonnerie.py` (lit les fiches de poissons
   dans le jar Starcatcher), **avant** l'import. Après l'import, les prix se changent dans le panneau `/shops` (un nouvel import n'écrase pas).
-- Installer : `/shops importer poissonnerie`, puis lier un PNJ à chacune des trois boutiques (voir « Poser un vendeur »).
+- Installer : `/shops importer poissonnerie`, puis lier un PNJ à chacune des quatre boutiques (voir « Poser un vendeur »).
 - Icône sur la carte (`minenorth_map`) : créer le point de la carte avec un nom contenant « Rachat de poisson » ou « Acheteur de poisson »
   → pastille dorée d'acheteur avec le poisson (`rachat_poisson`).
 

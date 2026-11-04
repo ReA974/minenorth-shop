@@ -52,8 +52,18 @@ for nom, raretes in BOUTIQUES:
         "illegalMinutes": 0, "illegalRadius": -1.0, "entries": entries,
     })
 
+# Comptoir de vente du matériel : filet de pêche des bateaux (mod garage, minenorth_rp_vehicles).
+shops.append({
+    "name": "Poissonnerie - Matériel de pêche", "mode": "SELL", "allowCash": True, "allowCard": True,
+    "licence": "", "policeGrade": -1, "pompier": False, "mairie": False,
+    "companyId": 0, "companyDirection": False, "illegal": False,
+    "illegalMinutes": 0, "illegalRadius": -1.0,
+    "entries": [{"item": "minenorth_rp_vehicles:filet_peche", "quantity": 1, "price": 35000, "category": "Filets"}],
+})
+
 pack = {
-    "_info": "Rachat des poissons Starcatcher (prix en centimes, par poisson, selon la rareté). Paiement sur le compte bancaire. "
+    "_info": "Rachat des poissons Starcatcher (prix en centimes, par poisson, selon la rareté), paiement sur le compte bancaire ; "
+             "vente du filet de pêche des bateaux. "
              "Import : /shops importer poissonnerie. Régénéré par minenorth_shops/tools/gen_poissonnerie.py.",
     "shops": shops,
 }
