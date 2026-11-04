@@ -58,7 +58,8 @@ shops.append({
     "licence": "", "policeGrade": -1, "pompier": False, "mairie": False,
     "companyId": 0, "companyDirection": False, "illegal": False,
     "illegalMinutes": 0, "illegalRadius": -1.0,
-    "entries": [{"item": "minenorth_rp_vehicles:filet_peche", "quantity": 1, "price": 35000, "category": "Filets"}],
+    "entries": [{"item": "minenorth_rp_vehicles:filet_peche", "quantity": 1, "price": 35000, "category": "Filets"},
+                {"item": "minenorth_rp_vehicles:bobine_fil_peche", "quantity": 1, "price": 4000, "category": "Réparation"}],
 })
 
 pack = {

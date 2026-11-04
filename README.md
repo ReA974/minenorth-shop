@@ -161,7 +161,7 @@ Pack **séparé** (fichier de config seulement, pas dans le jar) : `config/minen
 | Poissonnerie - Courants | Commun (27) · Peu commun (26) | 15 € · 25 € |
 | Poissonnerie - Rares | Rare (23) · Épique (23) | 45 € · 80 € |
 | Poissonnerie - Légendaires | Légendaire (15) | 180 € |
-| Poissonnerie - Matériel de pêche (vente) | Filet de pêche des bateaux (`minenorth_rp_vehicles:filet_peche`, mod garage) | 350 € |
+| Poissonnerie - Matériel de pêche (vente) | Filet de pêche des bateaux (`minenorth_rp_vehicles:filet_peche`, mod garage) · bobine de fil de pêche pour le réparer (`bobine_fil_peche`) | 350 € · 40 € |
 
 - Non rachetés : les déchets de pêche (bottes, algues séchées, coquillages, pince de crabe), les trophées, les modèles de forge.
 - Taille et poisson **doré** : Starcatcher les note sur l'objet, mais la boutique ne compare pas les données d'un article sans NBT,
