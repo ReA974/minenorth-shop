@@ -324,3 +324,5 @@ inverse (y compris par outils d'intelligence artificielle) et utilisation pour e
 Annuaire du téléphone (02/11, suite) : les **boutiques d'entreprise** (`companyId` ≠ 0 ou entreprise nommée) n'y sont plus, même pour leurs membres : gérées par les joueurs, elles restent hors de l'annuaire public (comme le marché noir).
 
 - 04/11 : pack `clandestin`, « Le Fourgue » : rubrique **Pistage** avec la balise espion (`minenorthvol:balise_espion`, 600 €).
+
+- 04/11 : pack `moto` (`tools/gen_moto.py`, ids vérifiés dans la langue du mod vêtements) : magasin **Moto Riders**, 22 articles : casques intégraux et jets, blousons, pantalons, gants, bottes. Import : `/shops importer moto`.
