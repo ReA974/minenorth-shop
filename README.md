@@ -220,6 +220,13 @@ Pack **séparé** (fichier de config seulement) : `config/minenorth_shops/packs/
   ids dans les sources des mods drogue, vol, portes, police, eurobank et vêtements), **avant** l'import.
 - Installer : `/shops importer clandestin`, puis lier **deux** entités au Fourgue (deux planques, voir « Boutiques illégales »).
 
+### Pack `meubles` : magasins de meubles (Yuushya, Immersive Furniture, nos blocs)
+Généré par `tools/gen_meubles.py` (`python -I tools/gen_meubles.py [dossier des mods]`), qui **vérifie chaque id** dans les jars de Yuushya et d'Immersive Furniture (dossier `mods` du serveur, puis instances CurseForge, puis `.minecraft`) et dans les sources de nos mods, et s'arrête s'il en manque un. Trois enseignes (54 articles au plus, rubriques de 20 caractères, prix en centimes) :
+- **Maison Nordik** (54) : petits prix façon grande enseigne suédoise : tables et commodes en bois brut, cadres de lit et literies, tapis, luminaires, rideaux, salle de bain.
+- **Atelier Prestige** (50) : haut de gamme : canapé, fauteuil, table en marbre, vitrine, multimédia, cuisine équipée, luminaires design, climatisation, pianos, jukebox, billard, coffres-forts, et l'établi d'Immersive Furniture (« Sur mesure » : les meubles d'Immersive Furniture sont des créations faites à l'établi, on vend l'établi et le matériau).
+- **Brocante du Port** (54) : vintage : tourne-disque et vinyles, tableaux anciens, petits objets, meubles anciens, plantes.
+Yuushya n'a pas de traduction française : chaque article porte son **nom français en NBT** (`display.Name`). Le même script écrit `config/Minenorth-portes/deco-catalogue.json` (application Déco du téléphone, mod Portes) avec en plus les **collections VIP / VIP+**, jamais vendues en magasin. Import : `/shops importer meubles`, puis poser un vendeur par magasin.
+
 ### Autres commandes
 
 - `/shops list` — liste des boutiques.
