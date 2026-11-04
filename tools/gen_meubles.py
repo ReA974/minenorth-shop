@@ -85,7 +85,7 @@ BOUTIQUES = [
                             (MUS + "piano_numerique", 900, None), (MUS + "jukebox", 1500, None),
                             (BAR + "table_billard", 4500, None), (BAR + "cible_flechettes", 250, None)]),
         ("Coffres", [(Y + "safe", 1500, "Coffre-fort"), (Y + "tall_safe", 2800, "Grand coffre-fort")]),
-        ("Sur mesure", [(IF + "artisans_workstation", 2000, None), (IF + "crafting_material", 5, None)]),
+        ("Sur mesure", [(IF + "artisans_workstation", 2000, "Établi de l'artisan"), (IF + "crafting_material", 5, "Matériau d'artisanat")]),
     ]),
     ("Brocante du Port", [
         ("Vintage", [(Y + "old_tv", 120, "Vieille télé"), (Y + "vinyl_record_player", 220, "Tourne-disque"),
