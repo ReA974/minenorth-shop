@@ -322,3 +322,5 @@ inverse (y compris par outils d'intelligence artificielle) et utilisation pour e
 **interdites** sans autorisation écrite. Voir [LICENSE](LICENSE).
 
 Annuaire du téléphone (02/11, suite) : les **boutiques d'entreprise** (`companyId` ≠ 0 ou entreprise nommée) n'y sont plus, même pour leurs membres : gérées par les joueurs, elles restent hors de l'annuaire public (comme le marché noir).
+
+- 04/11 : pack `clandestin`, « Le Fourgue » : rubrique **Pistage** avec la balise espion (`minenorthvol:balise_espion`, 600 €).

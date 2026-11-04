@@ -1,7 +1,7 @@
 # Génère le pack de boutiques illégales « clandestin » :
 #  - « Vendeur outils drogue » : tout ce qu'il faut pour produire (graines et ingrédients introuvables autrement, culture, labo, coupe).
 #    Même nom que la boutique clandestine du serveur (#21) : l'import lui ajoute seulement les articles qui lui manquent.
-#  - « Le Fourgue » : outils de vol (voitures, maisons, radars, coffres de banque) et de quoi rester discret.
+#  - « Le Fourgue » : outils de vol (voitures, maisons, radars, coffres de banque), balise espion pour pister quelqu'un, et de quoi rester discret.
 # Les ids sont vérifiés dans les sources des mods (objets enregistrés) : le script s'arrête si un objet n'existe pas.
 # Usage : python -I tools/gen_clandestin.py [fichier de sortie]
 import glob
@@ -38,6 +38,7 @@ BOUTIQUES = [
         ("Voitures", [(V + "screwdriver", 80), (V + "lockpicks", 150), (V + "lockpick_kit", 300), (V + "hacker_tool", 1200),
                       (V + "fake_plates", 250)]),
         ("Maisons", [(P + "lockpick", 120)]),
+        ("Pistage", [(V + "balise_espion", 600)]),
         ("Radars", [(POL + "pirate_radar", 400)]),
         ("Banque", [(BQ + "drill", 1500), (BQ + "drill_mk2", 3500), (BQ + "drill_mk3", 7000), (BQ + "hacker", 2500)]),
         ("Discrétion", [(VET + "cagoule_noire_helmet", 30), (VET + "cagoule_kaki_helmet", 30), (VET + "bandana_noir_helmet", 15),
